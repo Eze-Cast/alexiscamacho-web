@@ -7,7 +7,7 @@ Sitio estático editable en Visual Studio Code. Abre esta carpeta y utiliza Live
 - `app.js`: filtros, tarjetas, WhatsApp y acercamiento sutil al desplazarse.
 - `inventario.js`: 43 modelos seleccionados y sus fotografías locales.
 - `assets/autos/`: fotos obtenidas de los álbumes indicados en el inventario de la agencia.
-- `assets/asesor.webp`: imagen temporal proporcionada por el usuario.
+- `assets/asesor-alexis.webp`: fotografía del asesor proporcionada por el usuario.
 
 WhatsApp: +52 477 845 6675. Dominio activo: alexiscamacho.com.mx.
 
@@ -30,3 +30,5 @@ Ubicación verificada: https://leonmotors.mx/Contactanos/ — Blvd. Adolfo Lópe
 Inventario ampliado: 43 modelos de 18 marcas con una unidad disponible por modelo. Se conserva el fondo original de las fotos del inventario y se retocan los reflejos del coche. El Renault Logan se omite al no incluir una liga de fotos en el PDF.
 
 Para modificar el sitio paso a paso, consulta `GUIA_EDICION.md`. El formato se comparte mediante `.editorconfig`, `.prettierrc.json` y `.vscode/settings.json`.
+
+TikTok del asesor: https://www.tiktok.com/@alexc2c5. La portada incluye una cortina decorativa difuminada con las19marcas de la agencia, independiente de la selección aleatoria del coche.

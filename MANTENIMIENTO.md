@@ -29,3 +29,5 @@ Fotografías de inventario: mantienen el fondo original de la agencia. Se retoca
 Fuente de selección: PDF de noviembre2026,105 registros en tres bloques. Se agrupan marca y modelo; se excluyen unidades bloqueadas y se escoge una unidad con álbum por modelo. RenaultLogan se omite porque su fila no tiene enlace de fotografías en el PDF. Las23 unidades agregadas tienen identificadores21–43. El Peugeot2008 no tiene kilometraje informado; se muestra Porconfirmar, no0km. El kilometraje de Arona aparece con formato monetario en el PDF y se normaliza a8794km.
 
 Las referencias de otra versión, país o año se indican expresamente. Arona tiene discrepancia entre transmisión manual del inventario y automática de la ficha; Transporter y Crafter requieren identificar carrocería/configuración. Los valores pendientes no se inventan. La validación también impide repetir marca+modelo.
+
+TikTok del asesor: https://www.tiktok.com/@alexc2c5. La portada incluye una cortina decorativa difuminada con las19marcas de la agencia, independiente de la selección aleatoria del coche.

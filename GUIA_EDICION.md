@@ -54,3 +54,5 @@ El repositorio es `Eze-Cast/alexiscamacho-web`, rama `main`. GitHub Pages public
 ## Copias de las imágenes
 
 `respaldo-imagenes/` guarda43fotos retocadas de inventario,10recortes de portada y3escenarios en alta resolución. Para cambiar un recurso, conserva ese respaldo y exporta una copia WebP a `assets/`. El respaldo no se carga en la web ni forma parte de la publicación de GitHub.
+
+TikTok del asesor: https://www.tiktok.com/@alexc2c5. La portada incluye una cortina decorativa difuminada con las19marcas de la agencia, independiente de la selección aleatoria del coche.
