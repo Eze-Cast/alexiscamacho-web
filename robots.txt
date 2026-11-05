@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alexiscamacho.com.mx/sitemap.xml
