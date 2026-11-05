@@ -134,6 +134,10 @@ function openVehicle(id) {
           <a class="button" href="${wa(c)}" target="_blank" rel="noopener">
             Me interesa este auto ↗
           </a>
+          <a class="detail-trade-in" href="#auto-a-cuenta" data-trade-in>
+            <span aria-hidden="true">↔</span>
+            Tomamos tu auto a cuenta
+          </a>
           <button
             class="compare-toggle"
             data-compare="${c.id}"
@@ -220,7 +224,9 @@ function refreshCompare() {
   const selected = compared.map((id) => INVENTARIO.find((c) => c.id === id));
   $('#compareStatus').textContent =
     selected.length < 2
-      ? 'Selecciona al menos dos vehículos para comparar.'
+      ? selected.length === 1
+        ? 'Elige un auto más y abriremos tu comparativa automáticamente.'
+        : 'Selecciona dos vehículos para ver su comparativa.'
       : `${selected.length} seminuevos en comparación. Desliza la tabla en teléfono para ver todas las columnas.`;
   if (selected.length < 2) {
     $('#comparisonContent').innerHTML = /* HTML */ `
@@ -326,7 +332,31 @@ function refreshCompare() {
     </div>
   `;
 }
+// Al completar la segunda opción, muestra la tabla después de cerrar cualquier ficha.
+function showComparisonIfReady(previousCount) {
+  if (previousCount >= 2 || compared.length < 2) return;
+  const detail = $('#detail');
+  if (detail.open) detail.close();
+  requestAnimationFrame(() => {
+    history.replaceState(null, '', '#comparar');
+    $('#comparisonContent').scrollIntoView({
+      behavior: reduced.matches ? 'instant' : 'smooth',
+      block: 'start',
+    });
+    $('#comparar').focus({ preventScroll: true });
+  });
+}
+
 document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-trade-in]')) {
+    e.preventDefault();
+    $('#detail').close();
+    requestAnimationFrame(() => {
+      history.replaceState(null, '', '#auto-a-cuenta');
+      $('#auto-a-cuenta').scrollIntoView({ behavior: reduced.matches ? 'instant' : 'smooth' });
+    });
+    return;
+  }
   if (e.target.closest('#clearComparison')) {
     compared = [];
     refreshCompare();
@@ -339,6 +369,7 @@ document.addEventListener('click', (e) => {
     openVehicle(Number(b.dataset.open));
     return;
   }
+  const previousCount = compared.length;
   const id = Number(b.dataset.compare || b.dataset.remove);
   if (compared.includes(id)) compared = compared.filter((x) => x !== id);
   else if (compared.length < 3) compared.push(id);
@@ -351,10 +382,12 @@ document.addEventListener('click', (e) => {
     return;
   }
   refreshCompare();
+  showComparisonIfReady(previousCount);
 });
 $('#compareSelectors').addEventListener('change', (e) => {
   const s = e.target.closest('[data-slot]');
   if (!s) return;
+  const previousCount = compared.length;
   const slot = Number(s.dataset.slot);
   const id = Number(s.value);
   const next = [...compared];
@@ -362,6 +395,7 @@ $('#compareSelectors').addEventListener('change', (e) => {
   else next.splice(slot, 1);
   compared = next.filter(Boolean);
   refreshCompare();
+  showComparisonIfReady(previousCount);
 });
 const notice = document.createElement('div');
 notice.id = 'compareNotice';
@@ -477,6 +511,7 @@ vehiclePicker.addEventListener('close', () => {
 $('#pickerResults').onclick = (e) => {
   const b = e.target.closest('[data-pick-car]');
   if (!b || b.disabled) return;
+  const previousCount = compared.length;
   const id = Number(b.dataset.pickCar);
   if (compared[pickerSlot] !== id) {
     const next = [...compared];
@@ -485,6 +520,7 @@ $('#pickerResults').onclick = (e) => {
     refreshCompare();
   }
   vehiclePicker.close();
+  showComparisonIfReady(previousCount);
 };
 
 function selectSpecTab(button) {

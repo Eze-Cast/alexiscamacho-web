@@ -77,9 +77,15 @@ function renderInventory() {
                 <button class="compare-toggle" data-compare="${c.id}" aria-pressed="false">
                   ＋ Comparar
                 </button>
-                <a class="card-wa" href="${wa(c)}" target="_blank" rel="noopener">
-                  Consultar por WhatsApp ↗
-                </a>
+                <div class="card-contact-row">
+                  <a class="card-wa" href="${wa(c)}" target="_blank" rel="noopener">
+                    Me interesa ↗
+                  </a>
+                  <a class="card-trade-in" href="#auto-a-cuenta">
+                    <span aria-hidden="true">↔</span>
+                    Tomamos tu auto a cuenta
+                  </a>
+                </div>
               </div>
             </article>
           `

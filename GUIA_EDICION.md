@@ -39,6 +39,16 @@ El coche y el escenario se eligen una vez al cargar el documento. No agregues te
 
 WhatsApp usa el número internacional `524778456675`. El enlace directo de Instagram es `https://www.instagram.com/alexiscastillo.c/`, en la sección del asesor y el pie de página. No se carga un muro externo de publicaciones.
 
+En el apartado del asesor, “Síguenos en nuestras redes sociales” agrupa Instagram y TikTok con sus logos. Las tarjetas y fichas incluyen “Tomamos tu auto a cuenta” junto a la consulta de WhatsApp.
+
+## Tema y comparativa
+
+`preferencias.css` contiene los ajustes de acciones, redes y tema oscuro. `preferencias.js` controla el botón de sol/luna junto a “Hablemos” y guarda la preferencia bajo `ac-theme` en `localStorage`. Las fotografías conservan sus colores; el tema cambia las superficies y los textos.
+
+`comparador.js` lleva al visitante a la tabla cuando pasa de una opción a dos. Al recargar, la comparativa vuelve a estar vacía y la portada aparece primero; la preferencia de tema sí se conserva.
+
+El Virtus publicado es ahora el Trendline gris 2025, manual, con 17,488 km y precio de lista de $289,900. Su imagen y miniatura son `assets/autos/virtus-gris-2025.webp` y `assets/autos/virtus-gris-2025-thumb.webp`. Al sustituir otra unidad, actualiza juntos color, kilometraje, precio, foto y versión de la ficha; conserva el chasis y el álbum de origen en los archivos privados de trabajo.
+
 ## Vista local y comprobaciones
 
 Puedes abrir `index.html` con Live Server. Desde una terminal situada en esta carpeta también puedes ejecutar `python -m http.server 5500`, si Python está disponible.

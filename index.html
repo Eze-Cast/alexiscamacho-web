@@ -27,7 +27,9 @@
     />
     <link rel="canonical" href="https://alexiscamacho.com.mx/" />
     <link rel="icon" href="assets/ac-monograma.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261105-asesor-v3" />
+    <link rel="stylesheet" href="styles.css?v=20261105-preferencias" />
+    <link rel="stylesheet" href="preferencias.css?v=20261105-1" />
+    <script src="preferencias.js?v=20261105-1"></script>
   </head>
   <body>
     <header>
@@ -47,6 +49,24 @@
         </a>
         <a href="#asesor">Tu asesor</a>
         <a href="#ubicacion">Ubicación</a>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Activar tema oscuro"
+          aria-pressed="false"
+          title="Cambiar a tema oscuro"
+        >
+          <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14a8.5 8.5 0 0 1-10-10 8.5 8.5 0 1 0 10 10Z" />
+          </svg>
+          <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+            />
+          </svg>
+        </button>
         <a class="nav-contact" href="https://wa.me/524778456675" target="_blank" rel="noopener">
           Hablemos ↗
         </a>
@@ -619,7 +639,7 @@
           Quiero dar mi auto a cuenta ↗
         </a>
       </section>
-      <section class="comparison section" id="comparar">
+      <section class="comparison section" id="comparar" tabindex="-1">
         <div class="section-heading">
           <div>
             <p class="eyebrow">ELIGE CON MÁS CLARIDAD</p>
@@ -692,42 +712,48 @@
           >
             Platiquemos por WhatsApp ↗
           </a>
-          <a
-            class="social-link"
-            href="https://www.instagram.com/alexiscastillo.c/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Ver Instagram de Alexis: alexiscastillo.c"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle class="instagram-dot" cx="17.5" cy="6.5" r="1" />
-            </svg>
-            <span>
-              Sígueme en Instagram
-              <small>@alexiscastillo.c</small>
-            </span>
-            <b aria-hidden="true">↗</b>
-          </a>
-          <a
-            class="social-link tiktok-link"
-            href="https://www.tiktok.com/@alexc2c5"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Ver TikTok de Alexis: alexc2c5"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M14 3h3c.4 2 1.7 3.3 4 3.8v3a9 9 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3Z"
-              />
-            </svg>
-            <span>
-              Conoce los autos en TikTok
-              <small>@alexc2c5</small>
-            </span>
-            <b aria-hidden="true">↗</b>
-          </a>
+          <div class="advisor-socials" aria-labelledby="socialsTitle">
+            <h3 id="socialsTitle">Síguenos en nuestras redes sociales</h3>
+            <p>Novedades, seminuevos y atención más cerca de ti.</p>
+            <div class="social-platforms">
+              <a
+                class="social-link"
+                href="https://www.instagram.com/alexiscastillo.c/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ver Instagram de Alexis: alexiscastillo.c"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle class="instagram-dot" cx="17.5" cy="6.5" r="1" />
+                </svg>
+                <span>
+                  Instagram
+                  <small>@alexiscastillo.c</small>
+                </span>
+                <b aria-hidden="true">↗</b>
+              </a>
+              <a
+                class="social-link tiktok-link"
+                href="https://www.tiktok.com/@alexc2c5"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ver TikTok de Alexis: alexc2c5"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M14 3h3c.4 2 1.7 3.3 4 3.8v3a9 9 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3Z"
+                  />
+                </svg>
+                <span>
+                  TikTok
+                  <small>@alexc2c5</small>
+                </span>
+                <b aria-hidden="true">↗</b>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
       <section class="location section" id="ubicacion">
@@ -840,11 +866,11 @@
       <button class="close-dialog" id="closeDialog" aria-label="Cerrar ficha">✕</button>
       <div id="detailContent"></div>
     </dialog>
-    <script src="inventario.js?v=20261105-inventario"></script>
+    <script src="inventario.js?v=20261105-preferencias"></script>
     <script src="portadas.js?v=20261105-inventario"></script>
-    <script src="app.js?v=20261105-inventario"></script>
+    <script src="app.js?v=20261105-preferencias"></script>
     <script src="filtros.js?v=20261105-inventario"></script>
     <script src="fichas-tecnicas.js?v=20261105-inventario"></script>
-    <script src="comparador.js?v=20261105-inventario"></script>
+    <script src="comparador.js?v=20261105-preferencias"></script>
   </body>
 </html>
