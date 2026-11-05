@@ -20,4 +20,6 @@ Estado actual: 20 unidades destacadas, una foto por unidad, 20 fichas estructura
 
 Ubicación: Blvd. Adolfo López Mateos 2004, Col. Peñitas, C.P. 37180, León, Guanajuato. Verificada en https://leonmotors.mx/Contactanos/ y en la política de privacidad de Seminuevos León. El mapa usa la dirección exacta y el botón abre indicaciones de Google Maps.
 
-No se ha creado ni subido un repositorio ni se ha modificado Hostinger o el dominio. La publicación queda pendiente de revisión del usuario.
+Repositorio público: https://github.com/Eze-Cast/alexiscamacho-web. Publicación con GitHub Pages; dominio administrado en Hostinger. Actualizar primero los archivos locales, validar y subir los cambios a main.
+
+Portadas: Tera y Taos con paisaje de terracería; Polo con carretera; León y Mazda MX-5 con circuito. Los escenarios son imágenes decorativas generadas; las variantes de 3840 px son ampliadas a partir del original, no fotografías 4K nativas. Solo se solicita el coche y escenario elegidos en cada carga.
