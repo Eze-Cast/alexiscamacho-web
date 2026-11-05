@@ -4,3 +4,6 @@ Thumbs.db
 .env.*
 *.zip
 node_modules/
+
+# Copias locales en alta resolución
+/respaldo-imagenes/

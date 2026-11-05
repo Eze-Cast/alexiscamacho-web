@@ -1,0 +1,14 @@
+{
+  "name": "alexis-camacho-seminuevos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio estático de Alexis Camacho, seminuevos multimarca",
+  "scripts": {
+    "format": "prettier --write \"*.{html,css,js,cjs,json,md}\" \".vscode/*.json\"",
+    "format:check": "prettier --check \"*.{html,css,js,cjs,json,md}\" \".vscode/*.json\"",
+    "check": "node validar-inventario.cjs"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10"
+  }
+}

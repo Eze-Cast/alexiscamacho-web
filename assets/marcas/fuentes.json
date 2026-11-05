@@ -154,5 +154,83 @@
       "localOptimized": "./optimized/volkswagen.png",
       "localOriginal": "./original/volkswagen.png"
     }
+  },
+  {
+    "name": "Dodge",
+    "slug": "dodge",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/dodge-logo-2010-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/dodge.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/dodge.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/dodge.png",
+      "localThumb": "./thumb/dodge.png",
+      "localOptimized": "./optimized/dodge.png",
+      "localOriginal": "./original/dodge.png"
+    }
+  },
+  {
+    "name": "Honda",
+    "slug": "honda",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/honda-logo-2000-full-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/honda.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/honda.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/honda.png",
+      "localThumb": "./thumb/honda.png",
+      "localOptimized": "./optimized/honda.png",
+      "localOriginal": "./original/honda.png"
+    }
+  },
+  {
+    "name": "Hyundai",
+    "slug": "hyundai",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/hyundai-logo-2011-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/hyundai.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/hyundai.png",
+      "localThumb": "./thumb/hyundai.png",
+      "localOptimized": "./optimized/hyundai.png",
+      "localOriginal": "./original/hyundai.png"
+    }
+  },
+  {
+    "name": "MG",
+    "slug": "mg",
+    "image": {
+      "source": "https://www.carlogos.org/logo/MG-logo-red-2010-1920x1080.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/mg.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mg.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/mg.png",
+      "localThumb": "./thumb/mg.png",
+      "localOptimized": "./optimized/mg.png",
+      "localOriginal": "./original/mg.png"
+    }
+  },
+  {
+    "name": "Mitsubishi",
+    "slug": "mitsubishi",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Mitsubishi-logo-2000x2500.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/mitsubishi.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mitsubishi.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/mitsubishi.png",
+      "localThumb": "./thumb/mitsubishi.png",
+      "localOptimized": "./optimized/mitsubishi.png",
+      "localOriginal": "./original/mitsubishi.png"
+    }
+  },
+  {
+    "name": "Peugeot",
+    "slug": "peugeot",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Peugeot-logo-2010-1920x1080.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/peugeot.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/peugeot.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/peugeot.png",
+      "localThumb": "./thumb/peugeot.png",
+      "localOptimized": "./optimized/peugeot.png",
+      "localOriginal": "./original/peugeot.png"
+    }
   }
 ]
