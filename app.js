@@ -11,7 +11,7 @@ const mileage = (c) => (c.km == null ? 'Kilometraje por confirmar' : number(c.km
 const wa = (c) =>
   'https://wa.me/524778456675?text=' +
   encodeURIComponent(
-    `Hola Alexis, me interesa el ${c.name} ${c.year}, color ${c.color}, ${mileage(c)}, con precio de lista de ${money(c.price)} (unidad ${c.id}). ¿Sigue disponible?`
+    `Hola Alexis, me interesa el ${c.name} ${c.year}, color ${c.color}, ${mileage(c)}, con precio de lista de ${money(c.price)}. ¿Sigue disponible?`
   );
 const featured = [9, 5, 4, 6, 7, 11, 13];
 [...new Set(INVENTARIO.map((c) => c.brand))]
@@ -108,7 +108,7 @@ function variantControls(group, active) {
         : ''
     }
     ${colors.size > 1 ? `<div class="color-options" role="group" aria-label="Colores disponibles">${[...colors].map(([color, units]) => `<button type="button" class="color-option" data-color-unit="${defaultUnit(units).id}" aria-pressed="${color === active.color}" title="${escapeText(color)}"><span style="--paint:${colorTone(color)}" aria-hidden="true"></span>${escapeText(color)}</button>`).join('')}</div>` : ''}
-    ${sameColor.length > 1 ? `<label>Unidad de este color<select data-variant-control="unit">${sameColor.map((unit) => option(unit, `${mileage(unit)} · ${money(unit.price)} · Unidad ${unit.id}`, unit.id === active.id)).join('')}</select></label>` : ''}
+    ${sameColor.length > 1 ? `<label>Unidad de este color<select data-variant-control="unit">${sameColor.map((unit) => option(unit, `${mileage(unit)} · ${money(unit.price)}`, unit.id === active.id)).join('')}</select></label>` : ''}
   </div>`;
 }
 
