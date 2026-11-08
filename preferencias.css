@@ -1,4 +1,113 @@
 /* Preferencias visuales y acciones de inventario. Se carga después de styles.css. */
+.card-variants {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.card-variants:empty {
+  display: none;
+}
+.card-variants label {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.card-variants select {
+  min-height: 40px;
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--navy);
+  background: transparent;
+  font-size: 12px;
+}
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.color-option {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--navy);
+  background: transparent;
+  font-size: 11px;
+}
+.color-option > span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #899caf;
+  background: var(--paint);
+}
+.color-option[aria-pressed='true'] {
+  border-color: var(--blue);
+  box-shadow: inset 0 0 0 1px var(--blue);
+}
+.color-option:focus-visible,
+.card-variants select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+.card-version,
+.variant-photo-note {
+  color: var(--muted);
+  font-size: 11px;
+}
+.variant-photo-note {
+  margin: 0 0 8px;
+}
+.photo-pending {
+  display: grid;
+  place-items: center;
+  min-height: 72px;
+  width: 100%;
+  padding: 12px;
+  color: var(--muted);
+  background: #e9f0f7;
+  font-size: 12px;
+  text-align: center;
+}
+.card-photo > .photo-pending {
+  height: 100%;
+}
+.vehicle-gallery {
+  position: relative;
+}
+.vehicle-gallery > .photo-pending {
+  min-height: 240px;
+}
+.gallery-photo-note {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 7px 9px;
+  border-radius: 4px;
+  background: #0a1729e8;
+  color: #fff;
+  font-size: 11px;
+}
+.picker-option > .photo-pending,
+.vehicle-picker-trigger > .photo-pending {
+  width: 84px;
+  flex-shrink: 0;
+}
+[data-theme='dark'] .photo-pending,
+[data-theme='dark'] .card-variants select {
+  background: #17283b;
+}
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
