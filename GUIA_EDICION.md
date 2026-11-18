@@ -7,13 +7,13 @@ Abre **esta carpeta completa** en VS Code. Los archivos están en UTF-8, con san
 | Cambio                                               | Archivo                  |
 | ---------------------------------------------------- | ------------------------ |
 | Textos, secciones y enlaces de contacto              | `index.html`             |
-| Colores, tamaños, diseño en teléfono y animaciones   | `styles.css`             |
+| Colores, tamaños, diseño en teléfono y animaciones   | `disenio.css` (ambas páginas) |
+| Pantalla de carga, cursor, revelados, transiciones   | `fx.js` (ambas páginas)  |
 | Autos, precio, kilometraje, foto y marca             | `inventario.js`          |
 | Especificaciones de fábrica de cada auto             | `fichas-tecnicas.js`     |
 | Los diez autos de portada y el escenario de cada uno | `portadas.js`            |
-| Tarjetas y búsqueda del inventario                   | `app.js`                 |
-| Menús desplegables de marca, estilo y orden          | `filtros.js`             |
-| Ficha en pestañas y comparación de autos             | `comparador.js`          |
+| Tarjetas, filtros, ficha y comparador (seminuevos)   | `seminuevos.js`          |
+| Página de Nuevos VW y SEAT                           | `nuevos/index.html`, `nuevos/nuevos.js` |
 | Comprobaciones antes de publicar                     | `validar-inventario.cjs` |
 
 ## Actualizar un auto
@@ -45,7 +45,7 @@ En el apartado del asesor, “Síguenos en nuestras redes sociales” agrupa Ins
 
 `preferencias.css` contiene los ajustes de acciones, redes y tema oscuro. `preferencias.js` controla el botón de sol/luna junto a “Hablemos” y guarda la preferencia bajo `ac-theme` en `localStorage`. Las fotografías conservan sus colores; el tema cambia las superficies y los textos.
 
-`comparador.js` lleva al visitante a la tabla cuando pasa de una opción a dos. Al recargar, la comparativa vuelve a estar vacía y la portada aparece primero; la preferencia de tema sí se conserva.
+`seminuevos.js` muestra una bandeja flotante con los autos elegidos; con dos o tres se abre la tabla frente a frente. Al recargar, la comparativa vuelve a estar vacía y la portada aparece primero; la preferencia de tema sí se conserva.
 
 El Virtus publicado es ahora el Trendline gris 2025, manual, con 17,488 km y precio de lista de $289,900. Su imagen y miniatura son `assets/autos/virtus-gris-2025.webp` y `assets/autos/virtus-gris-2025-thumb.webp`. Al sustituir otra unidad, actualiza juntos color, kilometraje, precio, foto y versión de la ficha; conserva el chasis y el álbum de origen en los archivos privados de trabajo.
 

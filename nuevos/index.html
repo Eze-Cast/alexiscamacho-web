@@ -1,485 +1,260 @@
 <!doctype html>
-<html lang="es">
-  <head>
-    <script>
-      // Una recarga comienza en la portada y no restaura la posición anterior.
-      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-      if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
-        history.replaceState(
-          history.state,
-          "",
-          location.pathname + location.search + "#inicio",
-        );
-        const goToStart = () =>
-          scrollTo({ top: 0, left: 0, behavior: "instant" });
-        goToStart();
-        addEventListener(
-          "pageshow",
-          () => {
-            goToStart();
-            requestAnimationFrame(goToStart);
-          },
-          { once: true },
-        );
-      }
-    </script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="author" content="Alexis Humberto Camacho Castillo" />
-    <meta name="copyright" content="Alexis Humberto Camacho Castillo" />
-    <meta
-      property="og:site_name"
-      content="Alexis Humberto Camacho Castillo · Volkswagen y SEAT Nuevos"
-    />
-    <meta
-      property="og:title"
-      content="Alexis Humberto Camacho Castillo | Volkswagen y SEAT Nuevos"
-    />
-    <meta
-      property="og:description"
-      content="Encuentra tu próximo Volkswagen nuevo con Alexis Humberto Camacho Castillo. Explora versiones y recibe atención personal."
-    />
-    <meta property="og:type" content="website" />
-    <title>Alexis Humberto Camacho Castillo | Volkswagen y SEAT Nuevos</title>
-    <meta
-      name="description"
-      content="Tu próximo Volkswagen empieza aquí. Explora modelos nuevos, compara versiones y cotiza directamente con Alexis Humberto Camacho Castillo en León."
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../assets/alexis-camacho-logo.svg"
-    />
-    <script>
-      try {
-        document.documentElement.dataset.theme =
-          localStorage.getItem("ac-theme") === "dark"
-            ? "dark"
-            : "light";
-      } catch (e) {
-        document.documentElement.dataset.theme = "light";
-      }
-    </script>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="camacho.css?v=seat-dark-9" />
-    <script src="inventario.js?v=seat-dark-9" defer></script>
-    <script src="colores.js?v=seat-dark-9" defer></script>
-    <script src="fichas.js?v=seat-dark-9" defer></script>
-    <script src="app.js?v=seat-dark-9" defer></script>
-    <meta name="robots" content="index,follow" />
-<link rel="canonical" href="https://alexiscamacho.com.mx/nuevos/">
-  </head>
-  <body>
-    <a class="skip" href="#inventario">Saltar al inventario</a>
-    <header>
-      <a
-        class="logo"
-        href="#inicio"
-        aria-label="Alexis Humberto Camacho Castillo, inicio"
-        ><img
-          src="../assets/alexis-camacho-logo.svg"
-          alt="Alexis Humberto Camacho Castillo · Volkswagen y SEAT nuevos"
-          width="245"
-          height="64"
-      /></a>
-      <nav aria-label="Principal">
-        <a class="prototype-link" href="../index.html#inventario"
-          ><span aria-hidden="true">←</span> Seminuevos</a
-        >
-        <button
-          class="theme-toggle"
-          id="themeToggle"
-          type="button"
-          aria-label="Activar tema oscuro"
-          aria-pressed="false"
-          title="Cambiar a tema oscuro"
-        >
-          <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 14a8.5 8.5 0 0 1-10-10 8.5 8.5 0 1 0 10 10Z" />
-          </svg>
-          <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
-            />
-          </svg>
-        </button>
-      </nav>
-      <div hidden>
-        <span id="navCount">0</span>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#050d18" />
+  <title>Alexis Camacho | Volkswagen y SEAT Nuevos en León</title>
+  <meta name="description" content="Tu próximo Volkswagen o SEAT nuevo empieza aquí. Explora modelos, colores y versiones, compara y cotiza directamente con Alexis Humberto Camacho Castillo en León." />
+  <meta name="author" content="Alexis Humberto Camacho Castillo" />
+  <link rel="canonical" href="https://alexiscamacho.com.mx/nuevos/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Alexis Camacho | Volkswagen y SEAT Nuevos" />
+  <meta property="og:description" content="Explora versiones y colores, compara y cotiza con atención personal en León." />
+  <meta property="og:image" content="https://alexiscamacho.com.mx/nuevos/assets/tiguan.webp" />
+  <link rel="icon" href="../assets/ac-monograma.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../disenio.css?v=20261118" />
+  <script>
+    try { const t = localStorage.getItem('ac-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
+    document.documentElement.classList.add('js', 'loading');
+  </script>
+</head>
+<body class="page-new">
+  <!-- Monograma AC (mismos trazos del logo oficial) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a3c1dc"/><stop offset="1" stop-color="#197fc4"/></linearGradient>
+      <linearGradient id="gC" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#e0edf8"/><stop offset=".45" stop-color="#6fa3cf"/><stop offset="1" stop-color="#1265ac"/></linearGradient>
+      <linearGradient id="gPre" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1265ac"/><stop offset="1" stop-color="#cfe8ff"/></linearGradient>
+      <symbol id="ac" viewBox="0 0 190 140">
+        <path fill="url(#gA)" d="M14 107 55 22H75L116 107H94L85 86H43L34 107ZM51 68H77L64 39Z"/>
+        <path fill="url(#gC)" d="M174 36C155 16 126 15 107 32C89 48 88 77 102 96C119 119 151 119 175 99L162 84C146 98 128 97 118 84C109 73 110 55 120 46C131 36 148 38 160 49Z"/>
+        <path fill="none" stroke="#197fc4" stroke-width="4" d="M32 127H152"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Pantalla de carga -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pre-panel pre-top"></div>
+    <div class="pre-panel pre-bottom"></div>
+    <div class="pre-grid"></div>
+    <div class="pre-beams"><i></i><i></i></div>
+    <div class="pre-streaks"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></div>
+    <div class="pre-seam"></div>
+    <div class="pre-center">
+      <div class="pre-gauge">
+        <svg class="pre-ring" viewBox="0 0 240 240"><g class="pre-ticks"></g><circle class="pre-track" cx="120" cy="120" r="94" pathLength="400" stroke-dasharray="300 400"/><circle class="pre-fill" cx="120" cy="120" r="94"/></svg>
+        <i class="pre-needle"></i>
+        <svg class="pre-logo" viewBox="0 0 190 140">
+          <path fill="url(#gA)" d="M14 107 55 22H75L116 107H94L85 86H43L34 107ZM51 68H77L64 39Z"/>
+          <path fill="url(#gC)" d="M174 36C155 16 126 15 107 32C89 48 88 77 102 96C119 119 151 119 175 99L162 84C146 98 128 97 118 84C109 73 110 55 120 46C131 36 148 38 160 49Z"/>
+          <path fill="#197fc4" d="M32 125H152V129H32Z"/>
+        </svg>
       </div>
-    </header>
-    <main>
-      <section class="hero" id="inicio" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <p class="eyebrow"><span></span> VOLKSWAGEN Y SEAT NUEVOS · LEÓN</p>
-          <h1 id="heroTitle">
-            Estrena algo<br />que se sienta<br /><em>muy tú.</em>
-          </h1>
-          <p>
-            Tu próximo Volkswagen, con la atención<br class="desktop" />
-            que hace la diferencia. Soy Alexis Camacho<br class="desktop" />
-            y te acompaño a elegirlo.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="#inventario"
-              >Encuentra tu auto nuevo <span>↗</span></a
-            ><a
-              class="text-link"
-              href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20informaci%C3%B3n%20para%20estrenar%20un%20Volkswagen."
-              target="_blank"
-              rel="noopener"
-              >Cotiza conmigo ↗</a
-            >
-          </div>
-          <div class="hero-signature">
-            <img
-              src="../assets/alexis-camacho-logo.svg"
-              alt=""
-              width="43"
-              height="43"
-            />
-            <div>
-              Alexis Humberto Camacho Castillo<small
-                >Tu asesor Volkswagen</small
-              >
-            </div>
-          </div>
-        </div>
-        <div class="hero-stage">
-          <span class="hero-word" aria-hidden="true">VOLKSWAGEN</span>
-          <div class="stage-orbit" aria-hidden="true"></div>
-          <div class="stage-road" aria-hidden="true"></div>
-          <img
-            id="heroCar"
-            class="hero-car"
-            src="assets/tiguan.webp"
-            alt="Volkswagen Tiguan, imagen de referencia"
-            width="1440"
-            height="720"
-            fetchpriority="high"
-          />
-          <div class="hero-caption">
-            <span>DISEÑADO PARA TU SIGUIENTE PASO</span
-            ><strong id="heroModel">Tiguan</strong>
-          </div>
-          <a
-            href="#inventario"
-            class="scroll-cue"
-            aria-label="Explorar inventario"
-            >↓</a
-          >
-        </div>
-      </section>
-      <div class="intro-line">
-        <p>Dos marcas. Muchas formas de <em>vivir el camino.</em></p>
-        <span class="vw-brand"
-          ><img
-            src="assets/volkswagen-logo.webp"
-            alt="Volkswagen"
-            width="100"
-            height="100"
-          /><span class="vw-word" aria-hidden="true">VOLKSWAGEN</span></span
-        >
-      </div>
-      <section
-        class="inventory section"
-        id="inventario"
-        aria-labelledby="inventoryTitle"
-      >
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">ELIGE EL QUE VA CONTIGO</p>
-            <h2 id="inventoryTitle">Tu próximo<br /><em>auto nuevo.</em></h2>
-          </div>
-          <p>
-            De tu primer auto a tu siguiente gran aventura.<br />Explora las
-            versiones disponibles y encontremos<br />la ideal para ti.
-          </p>
-        </div>
-        <div class="inventory-stats">
-          <span><strong id="modelTotal">11</strong> modelos</span
-          ><span><strong id="versionTotal">25</strong> versiones</span
-          ><span>Volkswagen y SEAT · Autos nuevos</span>
-        </div>
-        <form
-          id="filters"
-          class="filters"
-          role="search"
-          aria-label="Filtrar inventario"
-        >
-          <label class="search-field"
-            ><span>Buscar</span
-            ><input
-              type="search"
-              id="search"
-              placeholder="Modelo, versión o color…"
-              autocomplete="off"
-          /></label>
-          <label
-            ><span>Modelo</span
-            ><select id="model">
-              <option value="">Todos los modelos</option>
-            </select></label
-          >
-          <label
-            ><span>Tipo de vehículo</span
-            ><select id="category">
-              <option value="">Todos los estilos</option>
-              <option>SUV</option>
-              <option>Sedán / Hatchback</option>
-              <option>Deportivo</option>
-              <option>Pickup</option>
-            </select></label
-          >
-          <label
-            ><span>Transmisión</span
-            ><select id="transmission">
-              <option value="">Todas</option>
-              <option value="automatic">Automática</option>
-              <option value="Manual">Manual</option>
-            </select></label
-          >
-          <label
-            ><span>Ordenar</span
-            ><select id="sort">
-              <option value="featured">Destacados</option>
-              <option value="name">Modelo A–Z</option>
-              <option value="year">Más recientes</option>
-              <option value="power">Mayor potencia</option>
-            </select></label
-          >
-        </form>
-        <div class="results">
-          <p id="resultCount" role="status" aria-live="polite"></p>
-          <button id="reset" type="button">Limpiar filtros ↺</button>
-        </div>
-        <div class="grid" id="grid"></div>
-        <p class="inventory-note">
-          Disponibilidad por confirmar. Imágenes de referencia; algunos tonos
-          son aproximados.
-        </p>
-      </section>
-      <section
-        class="comparison section"
-        id="comparar"
-        aria-labelledby="compareTitle"
-      >
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">UNA DECISIÓN MÁS CLARA</p>
-            <h2 id="compareTitle">Compara.<br /><em>Encuentra el tuyo.</em></h2>
-          </div>
-          <p>
-            Elige hasta tres versiones del inventario.<br />Revisa lo esencial,
-            lado a lado.
-          </p>
-        </div>
-        <div id="compareContent" aria-live="polite"></div>
-        <div class="compare-toolbar">
-          <p id="compareStatus">
-            Selecciona dos o tres versiones para comparar.
-          </p>
-          <button id="clearCompare" type="button" hidden>
-            Vaciar comparativa ↺
-          </button>
-        </div>
-      </section>
-      <section
-        class="advisor section"
-        id="asesor"
-        aria-labelledby="asesorTitle"
-      >
-        <figure class="advisor-photo">
-          <img
-            src="../assets/asesor-alexis.webp"
-            alt="Fotografía de presentación de Alexis Humberto Camacho Castillo en la agencia"
-            width="1600"
-            height="1066"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>
-            <span>Alexis Humberto Camacho Castillo</span
-            ><small>Tu asesor Volkswagen</small>
-          </figcaption>
-        </figure>
-        <div class="advisor-copy">
-          <p class="eyebrow">CONTIGO, DE PRINCIPIO A FIN</p>
-          <h2 id="asesorTitle">
-            Soy Alexis Camacho.<br /><em>Vamos a estrenar.</em>
-          </h2>
-          <p>
-            Elegir tu auto es una decisión especial. Hablemos de lo que
-            necesitas, de tus planes y del Volkswagen que te gustaría manejar.
-          </p>
-          <div class="steps">
-            <div>
-              <span>01</span>
-              <p>
-                <strong>Encuentra tu modelo</strong>Revisamos versiones, colores
-                y disponibilidad.
-              </p>
-            </div>
-            <div>
-              <span>02</span>
-              <p>
-                <strong>Recibe tu cotización</strong>Consulta precio,
-                promociones y alternativas de financiamiento.
-              </p>
-            </div>
-            <div>
-              <span>03</span>
-              <p>
-                <strong>Da el siguiente paso</strong>Coordinemos una visita para
-                conocerlo de cerca.
-              </p>
-            </div>
-          </div>
-          <a
-            class="button"
-            href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20para%20un%20Volkswagen%20nuevo."
-            target="_blank"
-            rel="noopener"
-            >Platiquemos por WhatsApp ↗</a
-          >
-          <div class="socials">
-            <p>Sígueme en mis redes sociales</p>
-            <a
-              href="https://www.instagram.com/alexiscastillo.c/"
-              target="_blank"
-              rel="noopener"
-              ><span>◎</span> Instagram <small>@alexiscastillo.c</small> ↗</a
-            >
-          </div>
-        </div>
-      </section>
-      <section
-        class="location section"
-        id="ubicacion"
-        aria-labelledby="locationTitle"
-      >
-        <div class="location-copy">
-          <p class="eyebrow">VEN A CONOCER TU VOLKSWAGEN</p>
-          <h2 id="locationTitle">Nos vemos<br /><em>en León.</em></h2>
-          <address>
-            Blvd. Adolfo López Mateos 2004<br />Col. Peñitas, C.P. 37180<br />León,
-            Guanajuato
-          </address>
-          <p>
-            Agenda tu visita con Alexis y conoce de cerca el Volkswagen que va
-            contigo.
-          </p>
-          <div class="location-actions">
-            <a
-              class="button"
-              href="https://www.google.com/maps/dir/?api=1&amp;destination=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato"
-              target="_blank"
-              rel="noopener"
-              >Cómo llegar ↗</a
-            >
-            <a
-              class="text-link"
-              href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20agendar%20una%20visita%20para%20conocer%20un%20Volkswagen%20nuevo%20en%20Pe%C3%B1itas."
-              target="_blank"
-              rel="noopener"
-              >Agendar visita ↗</a
-            >
-          </div>
-        </div>
-        <div class="location-map">
-          <iframe
-            title="Ubicación para visitar a Alexis Humberto Camacho Castillo en Peñitas, León"
-            src="https://maps.google.com/maps?q=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato&amp;z=16&amp;output=embed"
-            width="600"
-            height="450"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          ></iframe>
-          <a
-            class="map-label"
-            href="https://www.google.com/maps/dir/?api=1&amp;destination=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato"
-            target="_blank"
-            rel="noopener"
-            ><span>PEÑITAS · LEÓN, GUANAJUATO</span
-            ><strong>Abrir en Google Maps ↗</strong></a
-          >
-        </div>
-      </section>
-      <section class="closing section">
-        <p class="eyebrow">TU NUEVA HISTORIA EMPIEZA AQUÍ</p>
-        <h2>Un Volkswagen.<br /><em>Un mundo de posibilidades.</em></h2>
-        <div>
-          <a
-            class="button light"
-            href="https://wa.me/524778456675"
-            target="_blank"
-            rel="noopener"
-            >Quiero estrenar ↗</a
-          ><a class="closing-phone" href="tel:+524778456675">477 845 6675</a>
-        </div>
-        <span class="closing-mark" aria-hidden="true">AC</span>
-      </section>
-    </main>
-    <footer>
-      <a href="#inicio"
-        ><img
-          src="../assets/alexis-camacho-logo.svg"
-          alt="Alexis Humberto Camacho Castillo · Volkswagen y SEAT nuevos"
-          width="245"
-          height="64"
-      /></a>
-      <p>
-        Atención personal · León, Guanajuato<br />©
-        <span id="copyright">2026</span> Alexis Humberto Camacho Castillo
-      </p>
-      <div>
-        <a
-          href="https://www.instagram.com/alexiscastillo.c/"
-          target="_blank"
-          rel="noopener"
-          >Instagram ↗</a
-        ><a
-          href="https://www.vw.com.mx/es/configurador.html"
-          target="_blank"
-          rel="noopener"
-          >Configurador Volkswagen ↗</a
-        >
-      </div>
-      <p class="legal">
-        Sitio de atención personal de Alexis Humberto Camacho Castillo.
-        Volkswagen y los nombres de sus modelos pertenecen a sus respectivos
-        titulares. Consulta con tu asesor las especificaciones, condiciones
-        comerciales y disponibilidad de cada unidad. Este sitio no solicita
-        datos financieros ni recibe pagos.
-      </p>
-    </footer>
-    <a
-      class="floating-wa"
-      href="https://wa.me/524778456675"
-      target="_blank"
-      rel="noopener"
-      aria-label="Contactar a Alexis por WhatsApp"
-      ><svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z" />
-        <path
-          d="M9 7.5c-.7 0-1.2.7-1 1.5.5 2.4 2.2 4.2 4.8 5.3.8.3 1.8 0 2.1-.8l.3-.8-2.1-1-1 1c-1.2-.5-2.3-1.5-2.8-2.7l.9-.9-1.2-1.6Z"
-        /></svg
-      ><span>Escríbeme</span></a
-    >
-    <dialog id="detail" aria-labelledby="detailTitle">
-      <button
-        class="close"
-        id="closeDetail"
-        type="button"
-        aria-label="Cerrar ficha"
-      >
-        ×
+      <div class="pre-title"><span>ALEXIS</span><b>CAMACHO</b></div>
+      <div class="pre-meta"><small>VOLKSWAGEN · SEAT NUEVOS</small><i></i><b id="preCount">000</b></div>
+    </div>
+    <div class="pre-flash"></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><i class="cursor-dot"></i><i class="cursor-ring"><span class="cursor-label"></span></i></div>
+  <div class="scroll-progress" aria-hidden="true"><i></i></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <a class="brand" href="#inicio" aria-label="Alexis Camacho, inicio" data-cursor>
+      <svg viewBox="0 0 190 140" aria-hidden="true"><use href="#ac"/></svg>
+      <span><strong>ALEXIS</strong><b>CAMACHO</b><small>VW · SEAT NUEVOS</small></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inventario" data-cursor>Modelos</a>
+      <a href="#asesor" data-cursor>Asesor</a>
+      <a href="#ubicacion" data-cursor>Ubicación</a>
+      <a class="nav-new" href="../" data-transition data-cursor="Seminuevos"><small>MULTIMARCA</small>← Seminuevos</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Cambiar tema" data-cursor>
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M20 14a8.5 8.5 0 0 1-10-10 8.5 8.5 0 1 0 10 10Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
       </button>
-      <div id="detailContent"></div>
-    </dialog>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  </body>
+      <a class="btn btn-sm btn-glow magnetic" href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20informaci%C3%B3n%20para%20estrenar%20un%20Volkswagen." target="_blank" rel="noopener" data-cursor="Cotizar"><span>Cotiza conmigo</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-track" id="inicio">
+      <div class="hero">
+        <div class="hero-scene" id="heroScene"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-spot" aria-hidden="true"></div>
+        <div class="speedlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="hero-giant" aria-hidden="true"><span>ESTRENA</span><span>NUEVO</span></div>
+
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse"></span> VOLKSWAGEN Y SEAT NUEVOS · LEÓN</p>
+          <h1 data-split>Estrena algo que se sienta <em>muy tú.</em></h1>
+          <p class="hero-lead reveal" style="--d:.5s">Tu próximo Volkswagen o SEAT, con la atención que hace la diferencia. Soy Alexis Camacho y te acompaño a elegirlo.</p>
+          <div class="hero-ctas reveal" style="--d:.65s">
+            <a class="btn btn-glow magnetic" href="#inventario" data-cursor="Ver"><span>Encuentra tu auto nuevo</span><b>↗</b></a>
+            <a class="btn btn-ghost magnetic" href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20informaci%C3%B3n%20para%20estrenar%20un%20Volkswagen." target="_blank" rel="noopener" data-cursor><span>Cotiza conmigo ↗</span></a>
+          </div>
+        </div>
+
+        <div class="hero-stage">
+          <div class="hero-halo" aria-hidden="true"></div>
+          <div class="hero-car-wrap" id="heroCarWrap">
+            <img class="hero-car" id="heroCar" alt="" width="1440" height="720" fetchpriority="high" decoding="async" />
+            <div class="hero-shadow" aria-hidden="true"></div>
+            <div class="hero-sweep" aria-hidden="true"></div>
+          </div>
+          <div class="hero-floor" aria-hidden="true"></div>
+        </div>
+
+        <button class="hero-tag" id="heroTag" type="button" data-cursor="Ficha">
+          <small id="heroTagBrand">—</small>
+          <strong id="heroTagName">Cargando…</strong>
+          <span id="heroTagPrice"></span>
+        </button>
+
+        <div class="hero-controls">
+          <button type="button" id="heroPrev" aria-label="Modelo anterior" class="magnetic" data-cursor>←</button>
+          <div class="hero-index"><b id="heroIdx">01</b><span>/</span><span id="heroTotal">10</span></div>
+          <button type="button" id="heroNext" aria-label="Siguiente modelo" class="magnetic" data-cursor>→</button>
+          <div class="hero-timer"><i id="heroTimer"></i></div>
+        </div>
+        <a class="scroll-hint" href="#marcas" aria-label="Desliza para descubrir"><span>DESLIZA</span><i></i></a>
+      </div>
+    </section>
+
+    <section class="brands" id="marcas" aria-label="Modelos disponibles">
+      <div class="brand-duo reveal">
+        <img src="assets/volkswagen-logo.webp" alt="Volkswagen" width="100" height="100" />
+        <span>Dos marcas. Muchas formas de <em>vivir el camino.</em></span>
+        <img src="../assets/marcas/seat.webp" alt="SEAT" width="120" height="70" />
+      </div>
+      <div class="marquee marquee-text" data-dir="1" aria-hidden="true"><div class="marquee-track" id="modelsMarquee"></div></div>
+    </section>
+
+    <section class="stats section" aria-label="Catálogo en cifras">
+      <div class="stat reveal"><strong data-count id="stModels">0</strong><span>Modelos</span></div>
+      <div class="stat reveal" style="--d:.1s"><strong data-count id="stVersions">0</strong><span>Versiones para elegir</span></div>
+      <div class="stat reveal" style="--d:.2s"><strong data-count id="stColors">0</strong><span>Colores disponibles</span></div>
+      <div class="stat reveal" style="--d:.3s"><strong data-count id="stBrands">0</strong><span>Marcas · Volkswagen y SEAT</span></div>
+    </section>
+
+    <section class="inventory section" id="inventario">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">ELIGE EL QUE VA CONTIGO</p>
+          <h2 data-split>Tu próximo <em>auto nuevo.</em></h2>
+        </div>
+        <p class="reveal">De tu primer auto a tu siguiente gran aventura. Cambia el color, elige la versión y compara hasta tres.</p>
+      </div>
+      <form class="filters reveal" id="filters" role="search">
+        <label class="f-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="search" type="search" placeholder="Modelo, versión o color" autocomplete="off" aria-label="Buscar" />
+        </label>
+        <label class="f-select"><span>Modelo</span><select id="model"><option value="">Todos</option></select></label>
+        <label class="f-select"><span>Transmisión</span>
+          <select id="transmission"><option value="">Todas</option><option value="automatic">Automática</option><option value="Manual">Manual</option></select>
+        </label>
+        <label class="f-select"><span>Ordenar</span>
+          <select id="sort"><option value="featured">Destacados</option><option value="name">Modelo A–Z</option><option value="year">Más recientes</option><option value="power">Mayor potencia</option></select>
+        </label>
+        <div class="chips" id="chips" role="group" aria-label="Tipo de vehículo"></div>
+      </form>
+      <div class="results">
+        <span id="count" aria-live="polite"></span>
+        <button id="reset" type="button" class="link-btn" data-cursor>Limpiar filtros ↺</button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="note">Disponibilidad por confirmar. Imágenes de referencia; algunos tonos son aproximados.</p>
+    </section>
+
+    <section class="advisor section" id="asesor">
+      <div class="advisor-photo">
+        <div class="advisor-img"><img src="../assets/asesor-alexis.webp" alt="Alexis Humberto Camacho Castillo en la agencia" loading="lazy" /></div>
+        <div class="advisor-badge"><svg viewBox="0 0 190 140" aria-hidden="true"><use href="#ac"/></svg><span>TU ASESOR VOLKSWAGEN<br/><b>ALEXIS H. CAMACHO C.</b></span></div>
+        <svg class="advisor-orbit" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1-160 0"/></defs><text><textPath href="#circ">CONTIGO ✦ DE PRINCIPIO A FIN ✦ </textPath></text></svg>
+      </div>
+      <div class="advisor-copy">
+        <p class="eyebrow">CONTIGO, DE PRINCIPIO A FIN</p>
+        <h2 data-split>Soy Alexis Camacho. <em>Vamos a estrenar.</em></h2>
+        <p class="reveal">Elegir tu auto es una decisión especial. Hablemos de lo que necesitas, de tus planes y del auto que te gustaría manejar.</p>
+        <ol class="steps">
+          <li><b>01</b><span>Encuentra tu modelo</span></li>
+          <li><b>02</b><span>Recibe tu cotización</span></li>
+          <li><b>03</b><span>Da el siguiente paso</span></li>
+          <i class="steps-line"></i>
+        </ol>
+        <div class="advisor-actions reveal">
+          <a class="btn btn-glow magnetic" href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20para%20un%20Volkswagen%20nuevo." target="_blank" rel="noopener" data-cursor="Hablar"><span>Platiquemos por WhatsApp</span><b>↗</b></a>
+          <a class="social magnetic" href="https://www.instagram.com/alexiscastillo.c/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @alexiscastillo.c" data-cursor>
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="fill"/></svg>
+          </a>
+          <a class="social magnetic" href="https://www.tiktok.com/@alexc2c5" target="_blank" rel="noopener noreferrer" aria-label="TikTok @alexc2c5" data-cursor>
+            <svg viewBox="0 0 24 24"><path d="M14 3h3c.4 2 1.7 3.3 4 3.8v3a9 9 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="location section" id="ubicacion">
+      <div class="location-copy">
+        <p class="eyebrow">VEN A CONOCER TU AUTO NUEVO</p>
+        <h2 data-split>Nos vemos <em>en León.</em></h2>
+        <address class="reveal">Blvd. Adolfo López Mateos 2004<br />Col. Peñitas, C.P. 37180<br />León, Guanajuato</address>
+        <div class="loc-actions reveal">
+          <a class="btn btn-glow magnetic" href="https://www.google.com/maps/dir/?api=1&amp;destination=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato" target="_blank" rel="noopener" data-cursor="Ir"><span>Cómo llegar</span><b>↗</b></a>
+          <a class="btn btn-ghost magnetic" href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20agendar%20una%20visita%20para%20conocer%20un%20Volkswagen%20nuevo%20en%20Pe%C3%B1itas." target="_blank" rel="noopener" data-cursor><span>Agendar visita ↗</span></a>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe title="Ubicación en Peñitas, León" src="https://maps.google.com/maps?q=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-pin" aria-hidden="true"><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="closing-marquee" aria-hidden="true"><div class="marquee-track"><span>VAMOS A ESTRENAR ✦ VAMOS A ESTRENAR ✦&nbsp;</span><span>VAMOS A ESTRENAR ✦ VAMOS A ESTRENAR ✦&nbsp;</span></div></div>
+      <p class="eyebrow">TU NUEVA HISTORIA EMPIEZA AQUÍ</p>
+      <a class="closing-cta magnetic" href="https://wa.me/524778456675" target="_blank" rel="noopener" data-cursor="Escribir"><span>477 845 6675</span><b>↗</b></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#inicio"><svg viewBox="0 0 190 140" aria-hidden="true"><use href="#ac"/></svg><span><strong>ALEXIS</strong><b>CAMACHO</b><small>VW · SEAT NUEVOS</small></span></a>
+    <p>Atención personal · León, Guanajuato · <a href="https://www.vw.com.mx/es/configurador.html" target="_blank" rel="noopener">Configurador Volkswagen ↗</a></p>
+    <small>Volkswagen, SEAT y los nombres de sus modelos pertenecen a sus respectivos titulares. Consulta con tu asesor especificaciones, condiciones comerciales y disponibilidad. Este sitio no solicita datos financieros ni recibe pagos.</small>
+    <span>© <span id="year"></span> Alexis Humberto Camacho Castillo</span>
+  </footer>
+
+  <div class="compare-tray" id="compareTray" aria-live="polite">
+    <div class="tray-slots" id="traySlots"></div>
+    <div class="tray-actions">
+      <button type="button" class="link-btn" id="trayClear">Limpiar</button>
+      <button type="button" class="btn btn-glow btn-sm" id="trayOpen" disabled><span>Comparar</span><b>⇆</b></button>
+    </div>
+  </div>
+
+  <a class="wa-float magnetic" href="https://wa.me/524778456675" target="_blank" rel="noopener" aria-label="Contactar a Alexis por WhatsApp" data-cursor>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.9 7L3 20l1.4-4.9A8 8 0 1 1 20 11.6Z"/><path class="fill" d="M8 7.5c0 4 4.5 8 7.8 7.8l1.1-2-2.7-1.4-1.1 1c-1.7-.6-2.7-1.7-3.2-3.1l.9-1.1-1.3-2.5Z"/></svg>
+  </a>
+
+  <dialog class="modal" id="detail" aria-labelledby="detailTitle"><button class="modal-close" data-close aria-label="Cerrar">✕</button><div id="detailContent"></div></dialog>
+  <dialog class="modal modal-wide" id="compareModal" aria-labelledby="cmpTitle"><button class="modal-close" data-close aria-label="Cerrar">✕</button><div id="compareContent"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="inventario.js?v=20261118"></script>
+  <script src="colores.js?v=20261118"></script>
+  <script src="fichas.js?v=20261118"></script>
+  <script src="../fx.js?v=20261118"></script>
+  <script src="nuevos.js?v=20261118"></script>
+</body>
 </html>

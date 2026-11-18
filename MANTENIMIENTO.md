@@ -4,8 +4,8 @@ El sitio utiliza datos separados de la presentación:
 
 - `inventario.js`: unidades activas, identificador estable, fotos, miniatura, precio, año, versión, kilometraje, transmisión y color.
 - `fichas-tecnicas.js`: motor, potencia, torque, tracción, capacidades, seguridad, componentes y referencia de fábrica de cada unidad.
-- `portadas.js`: diez recortes de portada vinculados a unidades activas. Se elige uno solo al recargar. El ciclo barajado muestra los diez antes de repetir y evita repetir el último al iniciar otro ciclo. Solo se descarga el elegido.
-- `comparador.js`: selector visual, comparación de hasta tres autos y ficha ampliada.
+- `portadas.js`: recortes de portada vinculados a unidades activas. El hero los recorre en carrusel automático (también con flechas) y solo muestra los de unidades disponibles.
+- `seminuevos.js`: tarjetas, filtros, bandeja de comparación (hasta tres autos) y ficha ampliada. `fx.js` y `disenio.css` contienen los efectos y el diseño compartidos con `nuevos/`.
 
 Para actualizar una unidad:
 

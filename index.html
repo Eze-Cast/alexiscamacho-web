@@ -1,885 +1,298 @@
 <!doctype html>
-<html lang="es">
-  <head>
-    <script>
-      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-      history.replaceState(null, '', location.pathname + location.search + '#inicio');
-      document.documentElement.classList.add('boot');
-      addEventListener(
-        'DOMContentLoaded',
-        () => {
-          scrollTo({ top: 0, left: 0, behavior: 'instant' });
-          requestAnimationFrame(() => {
-            scrollTo({ top: 0, left: 0, behavior: 'instant' });
-            requestAnimationFrame(() => document.documentElement.classList.remove('boot'));
-          });
-        },
-        { once: true }
-      );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#06264a" />
-    <title>Alexis Camacho | Seminuevos multimarca</title>
-    <meta
-      name="description"
-      content="Encuentra tu próximo seminuevo con Alexis Camacho. Explora Volkswagen y una selección multimarca, y recibe atención directa por WhatsApp."
-    />
-    <link rel="canonical" href="https://alexiscamacho.com.mx/" />
-    <link rel="icon" href="assets/ac-monograma.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261105-preferencias" />
-    <link rel="stylesheet" href="preferencias.css?v=20261108-variantes" />
-    <script src="preferencias.js?v=20261105-1"></script>
-  <link rel="stylesheet" href="navegacion-nuevos.css?v=20261118-1">
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#050d18" />
+  <title>Alexis Camacho | Seminuevos multimarca en León</title>
+  <meta name="description" content="Encuentra tu próximo seminuevo con Alexis Camacho. Volkswagen y selección multimarca en León, Gto. Atención directa por WhatsApp." />
+  <link rel="canonical" href="https://alexiscamacho.com.mx/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Alexis Camacho | Seminuevos multimarca" />
+  <meta property="og:description" content="Seminuevos Volkswagen y multimarca en León, Gto. Atención directa por WhatsApp." />
+  <meta property="og:image" content="https://alexiscamacho.com.mx/assets/portadas/seleccion/taos.webp" />
+  <link rel="icon" href="assets/ac-monograma.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="disenio.css?v=20261118" />
+  <script>
+    try { const t = localStorage.getItem('ac-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
+    document.documentElement.classList.add('js', 'loading');
+  </script>
 </head>
-  <body>
-    <header>
-      <a class="logo" href="#inicio" aria-label="Alexis Camacho, inicio">
-        <img
-          src="assets/alexis-camacho-logo.svg"
-          alt="Alexis Camacho · Asesor automotriz"
-          width="260"
-          height="65"
-        />
-      </a>
-      <nav aria-label="Principal">
-        <a
-          class="prototype-link"
-          href="nuevos/index.html"
-          target="_blank"
-          rel="noopener"
-          aria-label="Nuevos"
-        >
-          <span class="new-link-icon" aria-hidden="true"
-            ><svg viewBox="0 0 32 32">
-              <path
-                d="m7 14 3-6h12l3 6M5 22v-6l2-2h18l2 2v6M5 22h22M8 22v3m16-3v3M9 18h3m8 0h3M11 8v6m10-6v6"
-              /></svg
-          ></span>
-          <span class="new-link-label"
-            ><small>VOLKSWAGEN · SEAT</small><strong>Nuevos</strong></span
-          >
-          <span class="new-link-arrow" aria-hidden="true">↗</span>
-        </a>
-        <button
-          class="theme-toggle"
-          id="themeToggle"
-          type="button"
-          aria-label="Activar tema oscuro"
-          aria-pressed="false"
-          title="Cambiar a tema oscuro"
-        >
-          <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 14a8.5 8.5 0 0 1-10-10 8.5 8.5 0 1 0 10 10Z" />
-          </svg>
-          <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
-            />
-          </svg>
-        </button>
-      </nav><span id="navCompareCount" hidden>0</span>
-    </header>
-    <main>
-      <section class="hero-track" id="inicio">
-        <div class="hero">
-          <div class="hero-glow"></div>
-          <div class="hero-brand-curtain" aria-hidden="true">
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/volkswagen.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/cupra.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/audi.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/bmw.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/byd.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/chevrolet.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/dodge.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/honda.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/hyundai.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/jeep.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/mazda.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/mg.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/mitsubishi.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/nissan.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/peugeot.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/renault.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img src="assets/marcas/seat.webp" alt="" width="120" height="70" decoding="async" />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/suzuki.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-            <div class="curtain-logo">
-              <img
-                src="assets/marcas/toyota.webp"
-                alt=""
-                width="120"
-                height="70"
-                decoding="async"
-              />
-            </div>
-          </div>
-          <div class="hero-copy">
-            <p class="eyebrow">SEMINUEVOS VOLKSWAGEN & MULTIMARCA</p>
-            <h1>
-              Tu siguiente
-              <br />
-              gran
-              <em>historia.</em>
-            </h1>
-            <p>
-              Empieza con un auto que va contigo.
-              <br />
-              Encuéntralo con atención personal, de principio a fin.
-            </p>
-            <a class="trade-in-hero" href="#auto-a-cuenta">
-              <span>↔</span>
-              Tomamos tu auto a cuenta
-            </a>
-            <a class="button" href="#inventario">
-              Explorar inventario
-              <span>↗</span>
-            </a>
-          </div>
-          <div class="stage editorial-car-stage">
-            <div class="hero-aura" aria-hidden="true"></div>
-            <div class="hero-lightline lightline-one" aria-hidden="true"></div>
-            <div class="hero-lightline lightline-two" aria-hidden="true"></div>
-            <div class="editorial-car-shadow" aria-hidden="true"></div>
-            <img
-              class="editorial-car"
-              width="1920"
-              height="1080"
-              alt="Volkswagen seminuevo"
-              fetchpriority="high"
-              decoding="async"
-            />
-            <div class="hero-floor-line" aria-hidden="true"></div>
-          </div>
-          <div class="hero-bottom">
-            <span>SEMINUEVOS DISPONIBLES. ENCUENTRA EL TUYO.</span>
-            <a href="#inventario">DESLIZA PARA DESCUBRIR ↓</a>
-            <span>ATENCIÓN DIRECTA, CONTIGO.</span>
-          </div>
-        </div>
-      </section>
-      <section class="brands" aria-label="Marcas de seminuevos">
-        <p class="eyebrow">SEMINUEVOS MULTIMARCA</p>
-        <div class="ticker">
-          <div class="brand-track">
-            <div class="brand-group">
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/volkswagen.webp"
-                  alt="Volkswagen"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/cupra.webp"
-                  alt="CUPRA"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/audi.webp"
-                  alt="Audi"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/bmw.webp"
-                  alt="BMW"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/byd.webp"
-                  alt="BYD"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/chevrolet.webp"
-                  alt="Chevrolet"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/dodge.webp"
-                  alt="Dodge"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/honda.webp"
-                  alt="Honda"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/hyundai.webp"
-                  alt="Hyundai"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/jeep.webp"
-                  alt="Jeep"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img src="assets/marcas/mg.webp" alt="MG" width="120" height="48" loading="lazy" />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/mazda.webp"
-                  alt="Mazda"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/mitsubishi.webp"
-                  alt="Mitsubishi"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/nissan.webp"
-                  alt="Nissan"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/peugeot.webp"
-                  alt="Peugeot"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/seat.webp"
-                  alt="SEAT"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/suzuki.webp"
-                  alt="Suzuki"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/toyota.webp"
-                  alt="Toyota"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="brand-group" aria-hidden="true">
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/volkswagen.webp"
-                  alt="Volkswagen"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/cupra.webp"
-                  alt="CUPRA"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/audi.webp"
-                  alt="Audi"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/bmw.webp"
-                  alt="BMW"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/byd.webp"
-                  alt="BYD"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/chevrolet.webp"
-                  alt="Chevrolet"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/dodge.webp"
-                  alt="Dodge"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/honda.webp"
-                  alt="Honda"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/hyundai.webp"
-                  alt="Hyundai"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/jeep.webp"
-                  alt="Jeep"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img src="assets/marcas/mg.webp" alt="MG" width="120" height="48" loading="lazy" />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/mazda.webp"
-                  alt="Mazda"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/mitsubishi.webp"
-                  alt="Mitsubishi"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/nissan.webp"
-                  alt="Nissan"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/peugeot.webp"
-                  alt="Peugeot"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/seat.webp"
-                  alt="SEAT"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/suzuki.webp"
-                  alt="Suzuki"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-              <div class="brand-logo">
-                <img
-                  src="assets/marcas/toyota.webp"
-                  alt="Toyota"
-                  width="120"
-                  height="48"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="inventory section" id="inventario">
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow">SEMINUEVOS SELECCIONADOS PARA TI</p>
-            <h2>
-              Encuentra tu
-              <br />
-              <em>próximo camino.</em>
-            </h2>
-          </div>
-          <p>
-            De la ciudad a la siguiente aventura.
-            <br />
-            Explora nuestros seminuevos destacados.
-          </p>
-        </div>
-        <div class="inventory-stats" id="inventoryStats"></div>
-        <form class="filters" id="filters">
-          <label>
-            Buscar
-            <input id="search" type="search" placeholder="Modelo o marca" />
-          </label>
-          <label>
-            Marca
-            <select id="brand">
-              <option value="">Todas las marcas</option>
-            </select>
-          </label>
-          <label>
-            Estilo
-            <select id="category">
-              <option value="">Todos los estilos</option>
-              <option>SUV</option>
-              <option>Deportivo</option>
-              <option>Pickup</option>
-              <option>Comercial</option>
-              <option>Sedán / Hatchback</option>
-            </select>
-          </label>
-          <label>
-            Ordenar
-            <select id="sort">
-              <option value="featured">Selección destacada</option>
-              <option value="low">Menor precio</option>
-              <option value="high">Mayor precio</option>
-              <option value="year">Más recientes</option>
-            </select>
-          </label>
-        </form>
-        <div class="results">
-          <span id="count" aria-live="polite"></span>
-          <button id="reset" type="button">Limpiar filtros ↺</button>
-        </div>
-        <div class="grid" id="grid"></div>
-        <p class="inventory-note">
-          Precios de lista en MXN, sujetos a cambio y disponibilidad. Confirma con el asesor el
-          precio final, los impuestos aplicables y las condiciones de cada unidad.
-        </p>
-      </section>
-      <section class="trade-in section" id="auto-a-cuenta">
-        <div class="trade-symbol" aria-hidden="true">↔</div>
-        <div>
-          <p class="eyebrow">DA EL SIGUIENTE PASO</p>
-          <h2>
-            Tomamos tu auto
-            <br />
-            <em>a cuenta.</em>
-          </h2>
-          <p>
-            Tu auto actual puede ser el comienzo del siguiente.
-            <br />
-            Cuéntame qué manejas y agenda una valuación.
-          </p>
-        </div>
-        <a
-          class="button"
-          href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20dar%20mi%20auto%20a%20cuenta%20y%20agendar%20una%20valuaci%C3%B3n."
-          target="_blank"
-          rel="noopener"
-        >
-          Quiero dar mi auto a cuenta ↗
-        </a>
-      </section>
-      <section class="comparison section" id="comparar" tabindex="-1">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">ELIGE CON MÁS CLARIDAD</p>
-            <h2>
-              Tus favoritos,
-              <br />
-              <em>frente a frente.</em>
-            </h2>
-          </div>
-          <p>
-            Compara hasta tres seminuevos.
-            <br />
-            Revisa sus datos y elige el que va contigo.
-          </p>
-        </div>
-        <div class="comparison-toolbar">
-          <span>Selecciona hasta 3 autos</span>
-          <button type="button" id="clearComparison" disabled>Limpiar comparación ↺</button>
-        </div>
-        <div class="compare-selectors" id="compareSelectors"></div>
-        <p class="compare-status" id="compareStatus" role="status" aria-live="polite">
-          Selecciona al menos dos vehículos para comparar.
-        </p>
-        <div id="comparisonContent"></div>
-        <p class="inventory-note">
-          Los datos de cada unidad provienen del inventario. Las especificaciones de fábrica se
-          muestran cuando hay una ficha oficial verificada; confirma el equipamiento instalado con
-          el asesor.
-        </p>
-      </section>
-      <section class="advisor section" id="asesor">
-        <div class="advisor-photo reveal">
-          <img
-            src="assets/asesor-alexis.webp"
-            alt="Alexis Humberto Camacho Castillo, asesor de seminuevos en León"
-            loading="lazy"
-          />
-          <span>ALEXIS HUMBERTO CAMACHO CASTILLO / TU ASESOR</span>
-        </div>
-        <div class="advisor-copy reveal">
-          <p class="eyebrow">EL AUTO IMPORTA. EL TRATO TAMBIÉN.</p>
-          <h2>
-            Una decisión grande.
-            <br />
-            <em>Una atención cercana.</em>
-          </h2>
-          <p>
-            Soy Alexis Humberto Camacho Castillo. Te acompaño a encontrar un seminuevo que se adapte
-            a lo que buscas, comparando opciones y resolviendo tus dudas de forma directa.
-          </p>
-          <div class="steps">
-            <div>
-              <b>01</b>
-              <span>Cuéntame qué buscas</span>
-            </div>
-            <div>
-              <b>02</b>
-              <span>Conoce tus opciones</span>
-            </div>
-            <div>
-              <b>03</b>
-              <span>Agenda una visita</span>
-            </div>
-          </div>
-          <a
-            class="button"
-            href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20asesor%C3%ADa%20para%20elegir%20un%20seminuevo."
-            target="_blank"
-            rel="noopener"
-          >
-            Platiquemos por WhatsApp ↗
-          </a>
-          <div class="advisor-socials" aria-labelledby="socialsTitle">
-            <h3 id="socialsTitle">Síguenos en nuestras redes sociales</h3>
-            <p>Novedades, seminuevos y atención más cerca de ti.</p>
-            <div class="social-platforms">
-              <a
-                class="social-link"
-                href="https://www.instagram.com/alexiscastillo.c/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ver Instagram de Alexis: alexiscastillo.c"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle class="instagram-dot" cx="17.5" cy="6.5" r="1" />
-                </svg>
-                <span>
-                  Instagram
-                  <small>@alexiscastillo.c</small>
-                </span>
-                <b aria-hidden="true">↗</b>
-              </a>
-              <a
-                class="social-link tiktok-link"
-                href="https://www.tiktok.com/@alexc2c5"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ver TikTok de Alexis: alexc2c5"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M14 3h3c.4 2 1.7 3.3 4 3.8v3a9 9 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3Z"
-                  />
-                </svg>
-                <span>
-                  TikTok
-                  <small>@alexc2c5</small>
-                </span>
-                <b aria-hidden="true">↗</b>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="location section" id="ubicacion">
-        <div class="location-copy">
-          <p class="eyebrow">VEN A CONOCER TU PRÓXIMO AUTO</p>
-          <h2>
-            Nos vemos
-            <br />
-            <em>en León.</em>
-          </h2>
-          <h3>Gocar Seminuevos · León Motors</h3>
-          <address>
-            Blvd. Adolfo López Mateos 2004
-            <br />
-            Col. Peñitas, C.P. 37180
-            <br />
-            León, Guanajuato
-          </address>
-          <p>
-            Agenda tu visita con Alexis y confirma
-            <br />
-            la ubicación de la unidad que quieres conocer.
-          </p>
-          <div class="location-actions">
-            <a
-              class="button"
-              href="https://www.google.com/maps/dir/?api=1&destination=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato"
-              target="_blank"
-              rel="noopener"
-            >
-              Cómo llegar ↗
-            </a>
-            <a
-              href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20agendar%20una%20visita%20a%20Gocar%20Seminuevos%20en%20Pe%C3%B1itas."
-              target="_blank"
-              rel="noopener"
-            >
-              Agendar visita ↗
-            </a>
-          </div>
-        </div>
-        <div class="location-map">
-          <iframe
-            title="Mapa de Gocar Seminuevos en Peñitas, León"
-            src="https://maps.google.com/maps?q=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato&amp;z=16&amp;output=embed"
-            width="600"
-            height="450"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          ></iframe>
-          <a
-            class="map-label"
-            href="https://www.google.com/maps/dir/?api=1&destination=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>PEÑITAS / LEÓN, GUANAJUATO</span>
-            <b>Abrir en Google Maps ↗</b>
-          </a>
-        </div>
-      </section>
-      <section class="closing">
-        <p class="eyebrow">TU SIGUIENTE AUTO ESTÁ MÁS CERCA</p>
-        <h2>¿Lo encontramos?</h2>
-        <a href="https://wa.me/524778456675" target="_blank" rel="noopener">477 845 6675 ↗</a>
-      </section>
-    </main>
-    <footer>
-      <a class="footer-name" href="#inicio">
-        <img src="assets/alexis-camacho-logo.svg" alt="Alexis Camacho" width="210" height="53" />
-      </a>
-      <p>Asesor automotriz · Seminuevos multimarca</p>
-      <a
-        class="footer-instagram"
-        href="https://www.instagram.com/alexiscastillo.c/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5" />
-          <circle cx="12" cy="12" r="4" />
-          <circle class="instagram-dot" cx="17.5" cy="6.5" r="1" />
+<body>
+  <!-- Monograma AC (mismos trazos del logo oficial) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a3c1dc"/><stop offset="1" stop-color="#197fc4"/></linearGradient>
+      <linearGradient id="gC" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#e0edf8"/><stop offset=".45" stop-color="#6fa3cf"/><stop offset="1" stop-color="#1265ac"/></linearGradient>
+      <linearGradient id="gPre" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1265ac"/><stop offset="1" stop-color="#cfe8ff"/></linearGradient>
+      <symbol id="ac" viewBox="0 0 190 140">
+        <path fill="url(#gA)" d="M14 107 55 22H75L116 107H94L85 86H43L34 107ZM51 68H77L64 39Z"/>
+        <path fill="url(#gC)" d="M174 36C155 16 126 15 107 32C89 48 88 77 102 96C119 119 151 119 175 99L162 84C146 98 128 97 118 84C109 73 110 55 120 46C131 36 148 38 160 49Z"/>
+        <path fill="none" stroke="#197fc4" stroke-width="4" d="M32 127H152"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Pantalla de carga -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pre-panel pre-top"></div>
+    <div class="pre-panel pre-bottom"></div>
+    <div class="pre-grid"></div>
+    <div class="pre-beams"><i></i><i></i></div>
+    <div class="pre-streaks"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></div>
+    <div class="pre-seam"></div>
+    <div class="pre-center">
+      <div class="pre-gauge">
+        <svg class="pre-ring" viewBox="0 0 240 240"><g class="pre-ticks"></g><circle class="pre-track" cx="120" cy="120" r="94" pathLength="400" stroke-dasharray="300 400"/><circle class="pre-fill" cx="120" cy="120" r="94"/></svg>
+        <i class="pre-needle"></i>
+        <svg class="pre-logo" viewBox="0 0 190 140">
+          <path fill="url(#gA)" d="M14 107 55 22H75L116 107H94L85 86H43L34 107ZM51 68H77L64 39Z"/>
+          <path fill="url(#gC)" d="M174 36C155 16 126 15 107 32C89 48 88 77 102 96C119 119 151 119 175 99L162 84C146 98 128 97 118 84C109 73 110 55 120 46C131 36 148 38 160 49Z"/>
+          <path fill="#197fc4" d="M32 125H152V129H32Z"/>
         </svg>
-        Instagram ↗
-      </a>
-      <small>Las marcas mencionadas pertenecen a sus respectivos titulares.</small>
-      <span>
-        ©
-        <span id="year"></span>
-        Alexis Camacho
-      </span>
-    </footer>
-    <a
-      class="whatsapp"
-      href="https://wa.me/524778456675"
-      target="_blank"
-      rel="noopener"
-      aria-label="Contactar a Alexis por WhatsApp"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 11.6a8 8 0 0 1-11.9 7L3 20l1.4-4.9A8 8 0 1 1 20 11.6Z" />
-        <path
-          d="M8 7.5c0 4 4.5 8 7.8 7.8l1.1-2-2.7-1.4-1.1 1c-1.7-.6-2.7-1.7-3.2-3.1l.9-1.1-1.3-2.5Z"
-        />
-      </svg>
-      <span>WhatsApp</span>
+      </div>
+      <div class="pre-title"><span>ALEXIS</span><b>CAMACHO</b></div>
+      <div class="pre-meta"><small>SEMINUEVOS MULTIMARCA</small><i></i><b id="preCount">000</b></div>
+    </div>
+    <div class="pre-flash"></div>
+  </div>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor" aria-hidden="true"><i class="cursor-dot"></i><i class="cursor-ring"><span class="cursor-label"></span></i></div>
+  <div class="scroll-progress" aria-hidden="true"><i></i></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <a class="brand" href="#inicio" aria-label="Alexis Camacho, inicio" data-cursor>
+      <svg viewBox="0 0 190 140" aria-hidden="true"><use href="#ac"/></svg>
+      <span><strong>ALEXIS</strong><b>CAMACHO</b><small>ASESOR AUTOMOTRIZ</small></span>
     </a>
-    <dialog id="detail">
-      <button class="close-dialog" id="closeDialog" aria-label="Cerrar ficha">✕</button>
-      <div id="detailContent"></div>
-    </dialog>
-    <script src="inventario.js?v=20261118-activo"></script>
-    <script src="portadas.js?v=20261105-inventario"></script>
-    <script src="app.js?v=20261108-kilometraje"></script>
-    <script src="filtros.js?v=20261108-variantes"></script>
-    <script src="fichas-tecnicas.js?v=20261118-fichas"></script>
-    <script src="comparador.js?v=20261112-fotos"></script>
-  </body>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inventario" data-cursor>Inventario</a>
+      <a href="#auto-a-cuenta" data-cursor>A cuenta</a>
+      <a href="#asesor" data-cursor>Asesor</a>
+      <a href="#ubicacion" data-cursor>Ubicación</a>
+      <a class="nav-new" href="nuevos/" data-transition data-cursor="Nuevos"><small>VW · SEAT</small>Nuevos ↗</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Cambiar tema" data-cursor>
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M20 14a8.5 8.5 0 0 1-10-10 8.5 8.5 0 1 0 10 10Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+      </button>
+      <a class="btn btn-sm btn-glow magnetic" href="https://wa.me/524778456675" target="_blank" rel="noopener" data-cursor="Escríbeme"><span>WhatsApp</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-track" id="inicio">
+      <div class="hero">
+        <div class="hero-scene" id="heroScene"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-spot" aria-hidden="true"></div>
+        <div class="speedlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="hero-giant" aria-hidden="true"><span>ALEXIS</span><span>CAMACHO</span></div>
+
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse"></span> SEMINUEVOS VOLKSWAGEN &amp; MULTIMARCA · LEÓN</p>
+          <h1 data-split>Tu siguiente <em>gran historia.</em></h1>
+          <p class="hero-lead reveal" style="--d:.5s">Empieza con un auto que va contigo. Encuéntralo con atención personal, de principio a fin.</p>
+          <div class="hero-ctas reveal" style="--d:.65s">
+            <a class="btn btn-glow magnetic" href="#inventario" data-cursor="Ver"><span>Explorar inventario</span><b>↗</b></a>
+            <a class="btn btn-ghost magnetic" href="#auto-a-cuenta" data-cursor><span>↔ Tomamos tu auto a cuenta</span></a>
+          </div>
+        </div>
+
+        <div class="hero-stage">
+          <div class="hero-halo" aria-hidden="true"></div>
+          <div class="hero-car-wrap" id="heroCarWrap">
+            <img class="hero-car" id="heroCar" alt="" width="1920" height="1080" fetchpriority="high" decoding="async" />
+            <div class="hero-shadow" aria-hidden="true"></div>
+            <div class="hero-sweep" aria-hidden="true"></div>
+          </div>
+          <div class="hero-floor" aria-hidden="true"></div>
+        </div>
+
+        <button class="hero-tag" id="heroTag" type="button" data-cursor="Ficha">
+          <small id="heroTagBrand">—</small>
+          <strong id="heroTagName">Cargando…</strong>
+          <span id="heroTagPrice"></span>
+        </button>
+
+        <div class="hero-controls">
+          <button type="button" id="heroPrev" aria-label="Auto anterior" class="magnetic" data-cursor>←</button>
+          <div class="hero-index"><b id="heroIdx">01</b><span>/</span><span id="heroTotal">10</span></div>
+          <button type="button" id="heroNext" aria-label="Siguiente auto" class="magnetic" data-cursor>→</button>
+          <div class="hero-timer"><i id="heroTimer"></i></div>
+        </div>
+
+        <a class="scroll-hint" href="#marcas" aria-label="Desliza para descubrir"><span>DESLIZA</span><i></i></a>
+      </div>
+    </section>
+
+    <!-- MARCAS -->
+    <section class="brands" id="marcas" aria-label="Marcas disponibles">
+      <div class="marquee" data-dir="1"><div class="marquee-track" id="brandsA"></div></div>
+      <div class="marquee marquee-text" data-dir="-1" aria-hidden="true"><div class="marquee-track">
+        <span>SEMINUEVOS <em>✦</em> MULTIMARCA <em>✦</em> ATENCIÓN DIRECTA <em>✦</em> LEÓN, GTO. <em>✦</em> TOMAMOS TU AUTO A CUENTA <em>✦</em>&nbsp;</span>
+        <span>SEMINUEVOS <em>✦</em> MULTIMARCA <em>✦</em> ATENCIÓN DIRECTA <em>✦</em> LEÓN, GTO. <em>✦</em> TOMAMOS TU AUTO A CUENTA <em>✦</em>&nbsp;</span>
+      </div></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats section" aria-label="Inventario en cifras">
+      <div class="stat reveal"><strong data-count id="stUnits">0</strong><span>Autos en inventario</span></div>
+      <div class="stat reveal" style="--d:.1s"><strong data-count id="stBrands">0</strong><span>Marcas para elegir</span></div>
+      <div class="stat reveal" style="--d:.2s"><strong><small>$</small><span data-count data-money id="stMin">0</span></strong><span>Precio de lista desde · MXN</span></div>
+      <div class="stat reveal" style="--d:.3s"><strong id="stYears">—</strong><span>Años modelo</span></div>
+    </section>
+
+    <!-- INVENTARIO -->
+    <section class="inventory section" id="inventario">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">SEMINUEVOS SELECCIONADOS PARA TI</p>
+          <h2 data-split>Encuentra tu <em>próximo camino.</em></h2>
+        </div>
+        <p class="reveal">De la ciudad a la siguiente aventura. Filtra, compara hasta tres y abre la ficha completa de cada unidad.</p>
+      </div>
+
+      <form class="filters reveal" id="filters" role="search">
+        <label class="f-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="search" type="search" placeholder="Busca modelo, marca, año o color" autocomplete="off" aria-label="Buscar" />
+        </label>
+        <label class="f-select"><span>Marca</span><select id="brand"><option value="">Todas</option></select></label>
+        <label class="f-select"><span>Ordenar</span>
+          <select id="sort">
+            <option value="featured">Destacados</option>
+            <option value="low">Menor precio</option>
+            <option value="high">Mayor precio</option>
+            <option value="year">Más recientes</option>
+            <option value="km">Menor kilometraje</option>
+          </select>
+        </label>
+        <label class="f-range"><span>Hasta <b id="maxPriceLabel">—</b></span><input id="maxPrice" type="range" /></label>
+        <div class="chips" id="chips" role="group" aria-label="Estilo"></div>
+      </form>
+
+      <div class="results">
+        <span id="count" aria-live="polite"></span>
+        <button id="reset" type="button" class="link-btn" data-cursor>Limpiar filtros ↺</button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="note">Precios de lista en MXN, sujetos a cambio y disponibilidad. Confirma con el asesor el precio final, los impuestos aplicables y las condiciones de cada unidad.</p>
+    </section>
+
+    <!-- AUTO A CUENTA -->
+    <section class="trade section" id="auto-a-cuenta">
+      <div class="trade-visual" aria-hidden="true">
+        <div class="trade-ring r1"></div><div class="trade-ring r2"></div><div class="trade-ring r3"></div>
+        <div class="trade-arrows"><span>←</span><span>→</span></div>
+      </div>
+      <div class="trade-copy">
+        <p class="eyebrow">DA EL SIGUIENTE PASO</p>
+        <h2 data-split>Tomamos tu auto <em>a cuenta.</em></h2>
+        <p class="reveal">Tu auto actual puede ser el comienzo del siguiente. Cuéntame qué manejas y agenda una valuación.</p>
+        <form class="trade-form reveal" id="tradeForm">
+          <label><span>Marca y modelo</span><input id="tMake" required placeholder="Ej. Volkswagen Vento" /></label>
+          <label><span>Año</span><input id="tYear" inputmode="numeric" maxlength="4" placeholder="2019" /></label>
+          <label><span>Kilometraje</span><input id="tKm" inputmode="numeric" placeholder="65,000" /></label>
+          <button class="btn btn-glow magnetic" type="submit" data-cursor="Enviar"><span>Quiero mi valuación</span><b>↗</b></button>
+          <small>Se abre WhatsApp con tus datos. No guardamos información.</small>
+        </form>
+      </div>
+    </section>
+
+    <!-- ASESOR -->
+    <section class="advisor section" id="asesor">
+      <div class="advisor-photo">
+        <div class="advisor-img"><img src="assets/asesor-alexis.webp" alt="Alexis Humberto Camacho Castillo, asesor de seminuevos en León" loading="lazy" /></div>
+        <div class="advisor-badge"><svg viewBox="0 0 190 140" aria-hidden="true"><use href="#ac"/></svg><span>TU ASESOR<br/><b>ALEXIS H. CAMACHO C.</b></span></div>
+        <svg class="advisor-orbit" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1-160 0"/></defs><text><textPath href="#circ">EL AUTO IMPORTA ✦ EL TRATO TAMBIÉN ✦ </textPath></text></svg>
+      </div>
+      <div class="advisor-copy">
+        <p class="eyebrow">EL AUTO IMPORTA. EL TRATO TAMBIÉN.</p>
+        <h2 data-split>Una decisión grande. <em>Una atención cercana.</em></h2>
+        <p class="reveal">Soy Alexis Humberto Camacho Castillo. Te acompaño a encontrar un seminuevo que se adapte a lo que buscas, comparando opciones y resolviendo tus dudas de forma directa.</p>
+        <ol class="steps" id="steps">
+          <li><b>01</b><span>Cuéntame qué buscas</span></li>
+          <li><b>02</b><span>Conoce tus opciones</span></li>
+          <li><b>03</b><span>Agenda una visita</span></li>
+          <i class="steps-line"></i>
+        </ol>
+        <div class="advisor-actions reveal">
+          <a class="btn btn-glow magnetic" href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20asesor%C3%ADa%20para%20elegir%20un%20seminuevo." target="_blank" rel="noopener" data-cursor="Hablar"><span>Platiquemos por WhatsApp</span><b>↗</b></a>
+          <a class="social magnetic" href="https://www.instagram.com/alexiscastillo.c/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @alexiscastillo.c" data-cursor>
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="fill"/></svg>
+          </a>
+          <a class="social magnetic" href="https://www.tiktok.com/@alexc2c5" target="_blank" rel="noopener noreferrer" aria-label="TikTok @alexc2c5" data-cursor>
+            <svg viewBox="0 0 24 24"><path d="M14 3h3c.4 2 1.7 3.3 4 3.8v3a9 9 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section class="location section" id="ubicacion">
+      <div class="location-copy">
+        <p class="eyebrow">VEN A CONOCER TU PRÓXIMO AUTO</p>
+        <h2 data-split>Nos vemos <em>en León.</em></h2>
+        <h3 class="reveal">Gocar Seminuevos · León Motors</h3>
+        <address class="reveal">Blvd. Adolfo López Mateos 2004<br />Col. Peñitas, C.P. 37180<br />León, Guanajuato</address>
+        <div class="loc-actions reveal">
+          <a class="btn btn-glow magnetic" href="https://www.google.com/maps/dir/?api=1&destination=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato" target="_blank" rel="noopener" data-cursor="Ir"><span>Cómo llegar</span><b>↗</b></a>
+          <a class="btn btn-ghost magnetic" href="https://wa.me/524778456675?text=Hola%20Alexis%2C%20quiero%20agendar%20una%20visita%20a%20Gocar%20Seminuevos%20en%20Pe%C3%B1itas." target="_blank" rel="noopener" data-cursor><span>Agendar visita ↗</span></a>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe title="Mapa de Gocar Seminuevos en Peñitas, León" src="https://maps.google.com/maps?q=Blvd.%20Adolfo%20L%C3%B3pez%20Mateos%202004%2C%20Pe%C3%B1itas%2C%2037180%20Le%C3%B3n%20de%20los%20Aldama%2C%20Guanajuato&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-pin" aria-hidden="true"><i></i><i></i></div>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="closing" id="cierre">
+      <div class="closing-marquee" aria-hidden="true"><div class="marquee-track"><span>¿LO ENCONTRAMOS? ✦ ¿LO ENCONTRAMOS? ✦&nbsp;</span><span>¿LO ENCONTRAMOS? ✦ ¿LO ENCONTRAMOS? ✦&nbsp;</span></div></div>
+      <p class="eyebrow">TU SIGUIENTE AUTO ESTÁ MÁS CERCA</p>
+      <a class="closing-cta magnetic" href="https://wa.me/524778456675" target="_blank" rel="noopener" data-cursor="Llamar">
+        <span>477 845 6675</span><b>↗</b>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#inicio"><svg viewBox="0 0 190 140" aria-hidden="true"><use href="#ac"/></svg><span><strong>ALEXIS</strong><b>CAMACHO</b><small>ASESOR AUTOMOTRIZ</small></span></a>
+    <p>Asesor automotriz · Seminuevos multimarca</p>
+    <small>Las marcas mencionadas pertenecen a sus respectivos titulares.</small>
+    <span>© <span id="year"></span> Alexis Camacho</span>
+  </footer>
+
+  <!-- Bandeja del comparador -->
+  <div class="compare-tray" id="compareTray" aria-live="polite">
+    <div class="tray-slots" id="traySlots"></div>
+    <div class="tray-actions">
+      <button type="button" class="link-btn" id="trayClear">Limpiar</button>
+      <button type="button" class="btn btn-glow btn-sm" id="trayOpen" disabled><span>Comparar</span><b>⇆</b></button>
+    </div>
+  </div>
+
+  <a class="wa-float magnetic" href="https://wa.me/524778456675" target="_blank" rel="noopener" aria-label="Contactar a Alexis por WhatsApp" data-cursor>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.9 7L3 20l1.4-4.9A8 8 0 1 1 20 11.6Z"/><path class="fill" d="M8 7.5c0 4 4.5 8 7.8 7.8l1.1-2-2.7-1.4-1.1 1c-1.7-.6-2.7-1.7-3.2-3.1l.9-1.1-1.3-2.5Z"/></svg>
+  </a>
+
+  <dialog class="modal" id="detail" aria-labelledby="detailTitle"><button class="modal-close" data-close aria-label="Cerrar">✕</button><div id="detailContent"></div></dialog>
+  <dialog class="modal modal-wide" id="compareModal" aria-labelledby="cmpTitle"><button class="modal-close" data-close aria-label="Cerrar">✕</button><div id="compareContent"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="inventario.js?v=20261118"></script>
+  <script src="fichas-tecnicas.js?v=20261118"></script>
+  <script src="portadas.js?v=20261118"></script>
+  <script src="fx.js?v=20261118"></script>
+  <script src="seminuevos.js?v=20261118"></script>
+</body>
 </html>

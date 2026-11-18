@@ -2,16 +2,18 @@
 
 Sitio estático editable en Visual Studio Code. Abre esta carpeta y utiliza Live Server o ejecuta `python -m http.server 5500` desde ella.
 
-- `index.html`: secciones y textos.
-- `styles.css`: colores, diseño adaptable y animaciones.
-- `app.js`: filtros, tarjetas, WhatsApp y acercamiento sutil al desplazarse.
+- `index.html`: secciones y textos de Seminuevos.
+- `disenio.css`: paleta, diseño adaptable y animaciones (compartido con `nuevos/`).
+- `fx.js`: pantalla de carga tipo tacómetro, cursor, revelados, carrusel del hero y transición entre Seminuevos y Nuevos.
+- `seminuevos.js`: filtros, tarjetas, comparador, ficha y WhatsApp.
+- `nuevos/`: catálogo de Volkswagen y SEAT nuevos (`nuevos.js` con colores, versiones y comparador).
 - `inventario.js`: 43 modelos seleccionados y sus fotografías locales.
 - `assets/autos/`: fotos obtenidas de los álbumes indicados en el inventario de la agencia.
 - `assets/asesor-alexis.webp`: fotografía del asesor proporcionada por el usuario.
 
 WhatsApp: +52 477 845 6675. Dominio activo: alexiscamacho.com.mx.
 
-La portada muestra un recorte aleatorio entre diez vehículos activos, con entrada suave y un paisaje decorativo según el tipo de auto. No tiene datos de versión ni movimientos de balanceo. El vehículo y su escenario solo cambian al recargar; se muestran los diez en orden barajado antes de repetir. La imagen conserva su ángulo y no responde al cursor; no es un modelo 3D giratorio. Se respeta la preferencia del dispositivo de reducir movimiento.
+La portada es un carrusel de los recortes activos sobre su escenario: cambia cada 7 segundos o con las flechas, con entrada y salida animadas. Se respeta la preferencia del dispositivo de reducir movimiento (sin carrusel automático ni animaciones).
 
 Los precios y kilometrajes proceden del inventario de noviembre de 2026. Antes de publicar hay que reconfirmar disponibilidad y condiciones comerciales. No se muestran VIN, ubicaciones internas ni ligas de álbumes al visitante.
 
