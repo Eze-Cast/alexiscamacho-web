@@ -334,3 +334,4 @@ html[data-theme="dark"] header .logo img {display:block;width:100%;max-height:no
 html[data-theme="dark"] nav .prototype-link {color:#d8edff;border-color:#6486a4;background:#1b354c;}
 html[data-theme="dark"] nav .prototype-link:hover {background:#2b5272;color:#fff;}
 @media(max-width:650px){html[data-theme="dark"] header .logo{width:130px;flex-basis:130px;min-height:0}html[data-theme="dark"] header .logo img{width:100%;max-width:none;height:auto}}
+html[data-theme="dark"] .filters input::placeholder {color:#b5c9dd;opacity:1;}
