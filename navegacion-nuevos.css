@@ -1,0 +1,201 @@
+/* Navegación exclusiva de la copia de revisión. */
+[hidden] {
+  display: none !important;
+}
+header nav .prototype-link {
+  display: inline-flex !important;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 18px 12px 14px;
+  min-height: 68px;
+  border: 1px solid #31699a;
+  border-radius: 14px;
+  background: linear-gradient(125deg, #0b2e52, #195f98);
+  box-shadow:
+    inset 0 1px 0 #ffffff26,
+    0 5px 14px #0a3d6518;
+  color: #fff;
+  text-align: left;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
+}
+header nav .prototype-link:after {
+  display: none;
+}
+.new-link-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ffffff24;
+  border-radius: 10px;
+  background: #ffffff09;
+}
+.new-link-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: #d9edff;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.new-link-label {
+  display: grid;
+  gap: 3px;
+}
+.new-link-label small {
+  font-size: 7px;
+  letter-spacing: 1.8px;
+  color: #b8d6ee;
+}
+.new-link-label strong {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+}
+.new-link-arrow {
+  display: grid;
+  place-items: center;
+  margin-left: 10px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #ffffff12;
+  font-size: 16px;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+header nav .prototype-link:hover {
+  transform: translateY(-2px);
+  border-color: #71b3e4;
+  box-shadow:
+    inset 0 1px 0 #ffffff30,
+    0 8px 20px #0a3d6525;
+}
+header nav .prototype-link:hover .new-link-arrow {
+  transform: translate(1px, -1px);
+  background: #ffffff24;
+}
+header nav .prototype-link:focus-visible {
+  outline: 2px solid #397fae;
+  outline-offset: 5px;
+}
+@media (max-width: 650px) {
+  header nav .prototype-link {
+    padding: 7px 9px;
+    gap: 9px;
+    min-height: 56px;
+    border-radius: 12px;
+  }
+  .new-link-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+  .new-link-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+  .new-link-label small {
+    font-size: 6px;
+    letter-spacing: 1.1px;
+  }
+  .new-link-label strong {
+    font-size: 15px;
+  }
+  .new-link-arrow {
+    width: 22px;
+    height: 22px;
+    margin-left: 1px;
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  header nav .prototype-link,
+  .new-link-arrow {
+    transition: none;
+  }
+}
+
+/* Un destello espaciado atrae la vista sin movimiento constante. */
+header nav .prototype-link {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  animation: new-button-glow 6s ease-in-out infinite;
+}
+header nav .prototype-link::before {
+  content: "";
+  position: absolute;
+  inset: -60% -70%;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 42%,
+    #ffffff29 50%,
+    transparent 58%
+  );
+  transform: translateX(-65%);
+  animation: new-button-shine 7s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes new-button-shine {
+  0%,
+  65% {
+    transform: translateX(-65%);
+  }
+  90%,
+  100% {
+    transform: translateX(65%);
+  }
+}
+@keyframes new-button-glow {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 1px 0 #ffffff26,
+      0 5px 14px #0a3d6520;
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 #ffffff40,
+      0 5px 22px #237ec146;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  header nav .prototype-link,
+  header nav .prototype-link::before {
+    animation: none;
+  }
+}
+
+header nav {
+  gap: 18px;
+}
+@media (max-width: 650px) {
+  header nav {
+    gap: 8px;
+  }
+  .new-link-label small {
+    font-size: 5.5px;
+    letter-spacing: 0.5px;
+  }
+  .new-link-arrow {
+    display: none;
+  }
+  .new-link-icon {
+    display: none;
+  }
+  header nav .prototype-link {
+    padding: 9px 12px;
+    gap: 7px;
+  }
+  .theme-toggle {
+    flex-shrink: 0;
+  }
+}

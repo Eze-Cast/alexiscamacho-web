@@ -1,0 +1,170 @@
+[
+  {
+    "model": "ibiza",
+    "code": "R6R6",
+    "label": "Gris Grafeno",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/R6R6.png",
+    "file": "assets/seat-colores/ibiza-R6R6.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "S7S7",
+    "label": "Gris Magnético",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/S7S7.png",
+    "file": "assets/seat-colores/ibiza-S7S7.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "0E0E",
+    "label": "Negro Medianoche",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/0E0E.png",
+    "file": "assets/seat-colores/ibiza-0E0E.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "2Y2Y",
+    "label": "Blanco Nevada",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/2Y2Y.png",
+    "file": "assets/seat-colores/ibiza-2Y2Y.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "9K9K",
+    "label": "Azul Fiordo",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/9K9K.png",
+    "file": "assets/seat-colores/ibiza-9K9K.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "M6M6",
+    "label": "Gris Onírico",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/M6M6.png",
+    "file": "assets/seat-colores/ibiza-M6M6.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "R1R1",
+    "label": "Amarillo Hypnotic",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/R1R1.png",
+    "file": "assets/seat-colores/ibiza-R1R1.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "S6S6",
+    "label": "Rojo Liminal",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/S6S6.png",
+    "file": "assets/seat-colores/ibiza-S6S6.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "PJP",
+    "label": "Rin 16&#39;&#39; Design de Aluminio Maquinado",
+    "wheel": true,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/PJP.png",
+    "file": "assets/seat-colores/ibiza-PJP.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "PUR",
+    "label": "Rin 17&#39;&#39; Dynamic de Aluminio",
+    "wheel": true,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/PUR.png",
+    "file": "assets/seat-colores/ibiza-PUR.webp"
+  },
+  {
+    "model": "ibiza",
+    "code": "PUS",
+    "label": "Rin 17&#39;&#39; Dynamic de Aluminio Maquinado",
+    "wheel": true,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/ibiza-2025/cc-lite/PUS.png",
+    "file": "assets/seat-colores/ibiza-PUS.webp"
+  },
+  {
+    "model": "arona",
+    "code": "2Y2Y",
+    "label": "Blanco Nevada",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/2Y2Y.png",
+    "file": "assets/seat-colores/arona-2Y2Y.webp"
+  },
+  {
+    "model": "arona",
+    "code": "S7S7",
+    "label": "Gris Magnético",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/S7S7.png",
+    "file": "assets/seat-colores/arona-S7S7.webp"
+  },
+  {
+    "model": "arona",
+    "code": "0E0E",
+    "label": "Negro Medianoche",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/0E0E.png",
+    "file": "assets/seat-colores/arona-0E0E.webp"
+  },
+  {
+    "model": "arona",
+    "code": "9K9K",
+    "label": "Azul Fiordo",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/9K9K.png",
+    "file": "assets/seat-colores/arona-9K9K.webp"
+  },
+  {
+    "model": "arona",
+    "code": "R6R6",
+    "label": "Gris Grafeno",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/R6R6.png",
+    "file": "assets/seat-colores/arona-R6R6.webp"
+  },
+  {
+    "model": "arona",
+    "code": "M6M6",
+    "label": "Gris Onírico",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/M6M6.png",
+    "file": "assets/seat-colores/arona-M6M6.webp"
+  },
+  {
+    "model": "arona",
+    "code": "M6R1",
+    "label": "Amarillo Hypnotic",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/M6R1.png",
+    "file": "assets/seat-colores/arona-M6R1.webp"
+  },
+  {
+    "model": "arona",
+    "code": "S60E",
+    "label": "Rojo Liminal",
+    "wheel": false,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/S60E.png",
+    "file": "assets/seat-colores/arona-S60E.webp"
+  },
+  {
+    "model": "arona",
+    "code": "C1C",
+    "label": "Rin 17&#39;&#39; Dynamic de Aluminio Maquinado",
+    "wheel": true,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/C1C.png",
+    "file": "assets/seat-colores/arona-C1C.webp"
+  },
+  {
+    "model": "arona",
+    "code": "V65",
+    "label": "Rin 16&#39;&#39; Design de Aluminio Maquinado",
+    "wheel": true,
+    "url": "https://www.seat.mx/content/dam/public/seat-website/carworlds/arona-2025/cc-lite/V65.png",
+    "file": "assets/seat-colores/arona-V65.webp"
+  }
+]

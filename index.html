@@ -30,7 +30,8 @@
     <link rel="stylesheet" href="styles.css?v=20261105-preferencias" />
     <link rel="stylesheet" href="preferencias.css?v=20261108-variantes" />
     <script src="preferencias.js?v=20261105-1"></script>
-  </head>
+  <link rel="stylesheet" href="navegacion-nuevos.css?v=20261118-1">
+</head>
   <body>
     <header>
       <a class="logo" href="#inicio" aria-label="Alexis Camacho, inicio">
@@ -42,13 +43,24 @@
         />
       </a>
       <nav aria-label="Principal">
-        <a href="#inventario">Inventario</a>
-        <a href="#comparar">
-          Comparar
-          <span id="navCompareCount">0</span>
+        <a
+          class="prototype-link"
+          href="nuevos/index.html"
+          target="_blank"
+          rel="noopener"
+          aria-label="Nuevos"
+        >
+          <span class="new-link-icon" aria-hidden="true"
+            ><svg viewBox="0 0 32 32">
+              <path
+                d="m7 14 3-6h12l3 6M5 22v-6l2-2h18l2 2v6M5 22h22M8 22v3m16-3v3M9 18h3m8 0h3M11 8v6m10-6v6"
+              /></svg
+          ></span>
+          <span class="new-link-label"
+            ><small>VOLKSWAGEN · SEAT</small><strong>Nuevos</strong></span
+          >
+          <span class="new-link-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="#asesor">Tu asesor</a>
-        <a href="#ubicacion">Ubicación</a>
         <button
           class="theme-toggle"
           id="themeToggle"
@@ -67,10 +79,7 @@
             />
           </svg>
         </button>
-        <a class="nav-contact" href="https://wa.me/524778456675" target="_blank" rel="noopener">
-          Hablemos ↗
-        </a>
-      </nav>
+      </nav><span id="navCompareCount" hidden>0</span>
     </header>
     <main>
       <section class="hero-track" id="inicio">
