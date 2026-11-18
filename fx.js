@@ -152,84 +152,134 @@
   }), { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
   const observeReveals = () => $$('.reveal, [data-split], .stat, .steps, .advisor-photo').filter((el) => !el.closest('.hero')).forEach((el) => io.observe(el));
 
-  /* ---------- Tilt con brillo en tarjetas ---------- */
+  /* ---------- Tilt con brillo en tarjetas (un solo cálculo por cuadro) ---------- */
   function bindTilt(el) {
     if (!fine || reduced || el.dataset.tilt) return;
     el.dataset.tilt = 1;
+    let rect = null, px = 0, py = 0, queued = false;
+    const apply = () => {
+      queued = false;
+      if (!rect) return;
+      const x = (px - rect.left) / rect.width, y = (py - rect.top) / rect.height;
+      el.style.transform = `rotateX(${((0.5 - y) * 8).toFixed(2)}deg) rotateY(${((x - 0.5) * 8).toFixed(2)}deg)`;
+      el.style.setProperty('--gx', `${(x * 100).toFixed(1)}%`);
+      el.style.setProperty('--gy', `${(y * 100).toFixed(1)}%`);
+    };
+    el.addEventListener('pointerenter', () => { rect = el.getBoundingClientRect(); el.classList.add('tilting'); });
     el.addEventListener('pointermove', (e) => {
-      const r = el.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      el.style.setProperty('--ry', `${(x - 0.5) * 9}deg`);
-      el.style.setProperty('--rx', `${(0.5 - y) * 9}deg`);
-      el.style.setProperty('--gx', `${x * 100}%`);
-      el.style.setProperty('--gy', `${y * 100}%`);
-    });
-    el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+      px = e.clientX; py = e.clientY;
+      if (!queued) { queued = true; requestAnimationFrame(apply); }
+    }, { passive: true });
+    el.addEventListener('pointerleave', () => { rect = null; el.classList.remove('tilting'); el.style.transform = ''; });
   }
   const grid = $('#grid');
   if (grid) new MutationObserver(() => $$('.card', grid).forEach(bindTilt)).observe(grid, { childList: true });
 
-  /* ---------- Botones magnéticos y cursor ---------- */
+  /* ---------- Cursor, botones magnéticos y luz del hero ---------- */
   const cursor = $('.cursor');
+  const heroEl = $('.hero');
+  const dot = $('.cursor-dot'), ring = $('.cursor-ring'), cursorLabel = $('.cursor-label');
   let cx = innerWidth / 2, cy = innerHeight / 2, rx = cx, ry = cy;
-  if (fine && !reduced) {
-    document.addEventListener('pointermove', (e) => {
-      const m = e.target.closest?.('.magnetic');
-      $$('.magnetic.mag-on').forEach((x) => { if (x !== m) { x.classList.remove('mag-on'); x.style.transform = ''; } });
-      if (!m) return;
-      const r = m.getBoundingClientRect();
-      m.classList.add('mag-on');
-      m.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.25}px, ${(e.clientY - r.top - r.height / 2) * 0.35}px)`;
-    });
+  let magnet = null, lastTarget = null, cursorRunning = false, heroVisible = true;
+  function cursorFrame() {
+    rx = lerp(rx, cx, 0.22); ry = lerp(ry, cy, 0.22);
+    dot.style.transform = `translate3d(${cx}px,${cy}px,0)`;
+    ring.style.transform = `translate3d(${rx.toFixed(1)}px,${ry.toFixed(1)}px,0)`;
+    // El bucle se detiene solo cuando el anillo alcanza al puntero.
+    if (Math.abs(rx - cx) + Math.abs(ry - cy) > 0.3) requestAnimationFrame(cursorFrame);
+    else cursorRunning = false;
   }
-  if (fine && cursor) {
+  if (fine && !reduced) {
     addEventListener('pointermove', (e) => {
       cx = e.clientX; cy = e.clientY;
-      root.style.setProperty('--mx', (cx / innerWidth - 0.5).toFixed(3));
-      root.style.setProperty('--my', (cy / innerHeight - 0.5).toFixed(3));
-      const t = e.target.closest?.('[data-cursor], a, button, select, input, label');
-      const label = t?.dataset?.cursor;
-      cursor.classList.toggle('hover', !!t && !label);
-      cursor.classList.toggle('label', !!label);
-      if (label) $('.cursor-label').textContent = label;
+      if (cursor && !cursorRunning) { cursorRunning = true; requestAnimationFrame(cursorFrame); }
+      // Solo la sección del hero recibe la posición del mouse (no toda la página).
+      if (heroEl && heroVisible && scrollY < innerHeight) {
+        heroEl.style.setProperty('--mx', (cx / innerWidth - 0.5).toFixed(3));
+        heroEl.style.setProperty('--my', (cy / innerHeight - 0.5).toFixed(3));
+      }
+      if (e.target === lastTarget) {
+        if (magnet) moveMagnet(e);
+        return;
+      }
+      lastTarget = e.target;
+      const m = e.target.closest?.('.magnetic') || null;
+      if (magnet && magnet !== m) { magnet.style.transform = ''; }
+      magnet = m;
+      if (magnet) moveMagnet(e);
+      if (cursor) {
+        const t = e.target.closest?.('[data-cursor], a, button, select, input, label');
+        const label = t?.dataset?.cursor;
+        cursor.classList.toggle('hover', !!t && !label);
+        cursor.classList.toggle('label', !!label);
+        if (label) cursorLabel.textContent = label;
+      }
     }, { passive: true });
   }
+  function moveMagnet(e) {
+    const r = magnet.getBoundingClientRect();
+    magnet.style.transform = `translate3d(${((e.clientX - r.left - r.width / 2) * 0.25).toFixed(1)}px, ${((e.clientY - r.top - r.height / 2) * 0.35).toFixed(1)}px, 0)`;
+  }
 
-  /* ---------- Bucle de scroll ---------- */
+  /* ---------- Pausa animaciones que no están a la vista ---------- */
+  const pauser = new IntersectionObserver((entries) => entries.forEach((e) => {
+    e.target.classList.toggle('paused', !e.isIntersecting);
+    if (e.target === heroEl) heroVisible = e.isIntersecting;
+  }), { rootMargin: '100px 0px' });
+  $$('.hero, .brands, .trade, .advisor, .closing, .map').forEach((el) => pauser.observe(el));
+
+  /* ---------- Scroll: solo trabaja cuando la página se mueve ---------- */
   const header = $('#header');
   const heroTrack = $('.hero-track');
   const advisor = $('.advisor-photo');
+  const bar = $('.scroll-progress i');
   const navLinks = $$('.nav a[href^="#"]');
   const sections = navLinks.map((a) => $(a.getAttribute('href'))).filter(Boolean);
-  const dot = $('.cursor-dot'), ring = $('.cursor-ring');
-  let lastY = 0, hp = 0;
-  function frame() {
+  let lastY = scrollY, hp = 0, hpTarget = 0, scrollQueued = false, hpRunning = false;
+  let docMax = 1, heroMax = 1, sectionTops = [];
+  const measure = () => {
+    docMax = Math.max(1, root.scrollHeight - innerHeight);
+    heroMax = heroTrack ? Math.max(1, heroTrack.offsetHeight - innerHeight) : 1;
+    sectionTops = sections.map((s) => s.getBoundingClientRect().top + scrollY);
+  };
+  function heroFrame() {
+    hp = lerp(hp, hpTarget, 0.16);
+    if (Math.abs(hpTarget - hp) < 0.001) hp = hpTarget;
+    heroEl.style.setProperty('--hp', hp.toFixed(4));
+    if (hp !== hpTarget) requestAnimationFrame(heroFrame);
+    else hpRunning = false;
+  }
+  function onScroll() {
+    scrollQueued = false;
     const y = scrollY;
-    root.style.setProperty('--p', (y / Math.max(1, root.scrollHeight - innerHeight)).toFixed(4));
-    if (heroTrack) {
-      hp = lerp(hp, reduced ? 0 : clamp(y / Math.max(1, heroTrack.offsetHeight - innerHeight)), 0.12);
-      root.style.setProperty('--hp', hp.toFixed(4));
+    if (bar) bar.style.transform = `scaleX(${(y / docMax).toFixed(4)})`;
+    if (heroTrack && heroEl && !reduced) {
+      const t = clamp(y / heroMax);
+      if (t !== hpTarget || hp !== t) {
+        hpTarget = t;
+        if (!hpRunning) { hpRunning = true; requestAnimationFrame(heroFrame); }
+      }
     }
     if (header) {
-      header.classList.toggle('scrolled', y > 40);
+      const scrolled = y > 40;
+      if (header.classList.contains('scrolled') !== scrolled) header.classList.toggle('scrolled', scrolled);
       if (y > lastY + 4 && y > innerHeight * 1.2 && !nav?.classList.contains('open')) header.classList.add('hide');
-      if (y < lastY - 4) header.classList.remove('hide');
+      else if (y < lastY - 4) header.classList.remove('hide');
     }
     lastY = y;
-    if (advisor) {
+    if (advisor && !reduced) {
       const ar = advisor.getBoundingClientRect();
-      advisor.style.setProperty('--ap', clamp((innerHeight - ar.top) / (innerHeight + ar.height)).toFixed(3));
+      if (ar.bottom > 0 && ar.top < innerHeight) advisor.style.setProperty('--ap', clamp((innerHeight - ar.top) / (innerHeight + ar.height)).toFixed(3));
     }
     let current = -1;
-    sections.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * 0.4) current = i; });
-    navLinks.forEach((a, i) => a.classList.toggle('active', i === current));
-    if (fine && dot) {
-      rx = lerp(rx, cx, 0.18); ry = lerp(ry, cy, 0.18);
-      dot.style.transform = `translate(${cx}px,${cy}px)`;
-      ring.style.transform = `translate(${rx}px,${ry}px)`;
-    }
-    requestAnimationFrame(frame);
+    sectionTops.forEach((top, i) => { if (top - y < innerHeight * 0.4) current = i; });
+    navLinks.forEach((a, i) => { if (a.classList.contains('active') !== (i === current)) a.classList.toggle('active', i === current); });
   }
+  const requestScroll = () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(onScroll); } };
+  addEventListener('scroll', requestScroll, { passive: true });
+  addEventListener('resize', () => { measure(); requestScroll(); }, { passive: true });
+  addEventListener('load', () => { measure(); requestScroll(); });
+  if (grid) new ResizeObserver(() => { measure(); }).observe(grid);
 
   /* ---------- Avisos y diálogos ---------- */
   function toast(msg) {
@@ -334,7 +384,8 @@
 
   addEventListener('DOMContentLoaded', () => {
     observeReveals();
-    requestAnimationFrame(frame);
+    measure();
+    onScroll();
     const y = $('#year');
     if (y) y.textContent = new Date().getFullYear();
   });
